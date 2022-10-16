@@ -4,4 +4,6 @@
     <string name="init_page_second_title">The product will make your home smarter and more comfortable</string>
     <string name="login">Log In</string>
     <string name="signup">Sign Up</string>
+    <string name="password">Password</string>
+    <string name="username">User Name</string>
 </resources>
