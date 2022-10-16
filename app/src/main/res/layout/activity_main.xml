@@ -101,10 +101,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201"
+        app:layout_constraintVertical_bias="0.2"
         tools:ignore="TextContrastCheck HardcodedText" />
 
     <Button
@@ -333,10 +333,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="225dp"
-        android:layout_height="444dp"
-        app:srcCompat="@drawable/l_mpada"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="41dp" />
+        android:layout_width="64dp"
+        android:layout_height="110dp"
+        app:layout_constraintBottom_toTopOf="@+id/InitPage_title2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InitPage_title"
+        app:srcCompat="@drawable/lampada" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
