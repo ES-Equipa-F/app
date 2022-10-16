@@ -101,9 +101,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.286"
+        app:layout_constraintVertical_bias="0.2"
         tools:ignore="TextContrastCheck HardcodedText" />
 
     <Button
@@ -117,8 +118,10 @@
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InitPage_title"
+        app:layout_constraintVertical_bias="0.665"
         tools:ignore="TextContrastCheck" />
 
     <Button
@@ -132,10 +135,10 @@
         android:textColor="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_but"
-        app:layout_constraintVertical_bias="0.012"
+        app:layout_constraintVertical_bias="0.096"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <TextView
@@ -152,7 +155,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InitPage_title"
-        app:layout_constraintVertical_bias="0.673"
+        app:layout_constraintVertical_bias="0.517"
         tools:ignore="TextContrastCheck" />
 
     <ImageView
@@ -296,5 +299,46 @@
         app:layout_constraintVertical_bias="0.479"
         app:srcCompat="@drawable/circle"
         tools:ignore="ImageContrastCheck, ContentDescription" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="166dp"
+        android:layout_height="48dp"
+        android:background="@drawable/signupbutton"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/login_but"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="166dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/signupbutton"
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/login_but"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="64dp"
+        android:layout_height="110dp"
+        app:layout_constraintBottom_toTopOf="@+id/InitPage_title2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InitPage_title"
+        app:srcCompat="@drawable/lampada" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
