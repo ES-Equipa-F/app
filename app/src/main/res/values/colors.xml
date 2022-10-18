@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="purple_theme">#A78DF1</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="switch_on">#92E3A9</color>
+    <color name="switch_off">#999999</color>
 </resources>
