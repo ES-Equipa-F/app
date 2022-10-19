@@ -66,11 +66,11 @@
 
             <ImageView
                 android:id="@+id/imageView18"
-                android:layout_width="40dp"
-                android:layout_height="38dp"
+                android:layout_width="34dp"
+                android:layout_height="30dp"
                 app:srcCompat="@drawable/lampada"
-                tools:layout_editor_absoluteX="62dp"
-                tools:layout_editor_absoluteY="33dp" />
+                tools:layout_editor_absoluteX="68dp"
+                tools:layout_editor_absoluteY="41dp" />
 
             <Switch
                 android:id="@+id/switch3"
@@ -80,6 +80,37 @@
                 android:thumb="@drawable/thumb_selector"
                 android:track="@drawable/track_selector"
                 tools:layout_editor_absoluteX="109dp"
+                tools:layout_editor_absoluteY="41dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="60dp"
+                android:layout_height="15dp"
+                android:fontFamily="@font/roboto"
+                android:text="Manual"
+                android:textAlignment="center"
+                android:textColor="@color/purple_theme"
+                android:textSize="12sp"
+                tools:layout_editor_absoluteX="109dp"
+                tools:layout_editor_absoluteY="26dp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="169dp"
+                tools:layout_editor_absoluteY="6dp" />
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="32dp"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/brightness"
+                tools:layout_editor_absoluteX="198dp"
                 tools:layout_editor_absoluteY="41dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
