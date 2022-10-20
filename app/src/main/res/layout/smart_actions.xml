@@ -31,6 +31,23 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="TextContrastCheck" />
 
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="408dp"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="80dp">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usual Actions" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Automation" />
+        </com.google.android.material.tabs.TabLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -174,8 +191,9 @@
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/imageFilterView6"
-            app:layout_constraintTop_toTopOf="@+id/imageFilterView7"
-            tools:layout_editor_absoluteX="150dp" />
+            app:layout_constraintEnd_toEndOf="@+id/imageFilterView7"
+            app:layout_constraintStart_toStartOf="@+id/imageFilterView7"
+            app:layout_constraintTop_toTopOf="@+id/imageFilterView7" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
