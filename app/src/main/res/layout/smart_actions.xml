@@ -32,20 +32,36 @@
             tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.tabs.TabLayout
-            android:layout_width="408dp"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="80dp">
+            android:layout_width="416dp"
+            android:layout_height="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:tabIndicator="@drawable/white_rectangle3"
+            app:tabIndicatorColor="@color/white"
+            app:tabRippleColor="@color/white"
+            app:tabTextColor="@color/purple_theme">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Usual Actions" />
+                android:foregroundTint="@color/white"
+                android:text="Usual Actions"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextColor="@color/white"
+                tools:layout_editor_absoluteX="-8dp"
+                tools:layout_editor_absoluteY="440dp" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Automation" />
+                android:text="Automation"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextColor="@color/white"
+                tools:layout_editor_absoluteX="195dp"
+                tools:layout_editor_absoluteY="440dp" />
         </com.google.android.material.tabs.TabLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
