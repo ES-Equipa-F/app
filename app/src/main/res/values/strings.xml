@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Smart Lights</string>
     <string name="init_page_first_title"> Welcome to Smart Lights</string>
     <string name="init_page_second_title">The product will make your home smarter and more comfortable</string>
     <string name="my_home">My Home</string>
