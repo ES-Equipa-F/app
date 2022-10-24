@@ -17,8 +17,8 @@
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="165dp"
-            android:layout_height="34dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="41dp"
@@ -57,9 +57,9 @@
 
         <TextView
             android:id="@+id/textView8"
-            android:layout_width="110dp"
-            android:layout_height="33dp"
-            android:text="@string/gotoBed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gotobed"
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageFilterView7"
@@ -139,7 +139,7 @@
                 app:layout_constraintHorizontal_bias="0.213"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/Smart_Home_but"
-                app:layout_constraintVertical_bias="0.73"
+                app:layout_constraintVertical_bias="1.0"
                 tools:ignore="TextContrastCheck" />
 
             <ImageButton
@@ -152,7 +152,7 @@
                 app:layout_constraintHorizontal_bias="0.783"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintVertical_bias="0.489"
                 app:srcCompat="@drawable/profile"
                 tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck, ContentDescription" />
 
@@ -170,7 +170,7 @@
                 app:layout_constraintHorizontal_bias="0.783"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.731"
+                app:layout_constraintVertical_bias="1.0"
                 tools:ignore="TextContrastCheck" />
 
             <TextView
@@ -187,7 +187,7 @@
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.731" />
+                app:layout_constraintVertical_bias="1.0" />
 
             <ImageButton
                 android:id="@+id/imageFilterView"
@@ -199,7 +199,7 @@
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintVertical_bias="0.468"
                 app:srcCompat="@drawable/_2artboard_1"
                 tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck, ContentDescription" />
 
@@ -213,7 +213,7 @@
                 app:layout_constraintHorizontal_bias="0.213"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintVertical_bias="0.468"
                 app:srcCompat="@drawable/home_gray"
                 tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck, ContentDescription" />
 
