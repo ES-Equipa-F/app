@@ -1,42 +1,45 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_profile);
 
-        goToMyHome();
-        goToSignUp();
+        goToHome();
+        goToSmart();
     }
 
-    public void goToMyHome(){
-        Button button = (Button) findViewById(R.id.login_but);
+    public void goToHome(){
+        ImageButton button = (ImageButton) findViewById(R.id.Profile_Home_but);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this,myHomeActivity.class);
+                Intent i = new Intent(ProfileActivity.this,myHomeActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    public void goToSmart(){
+        ImageButton button = (ImageButton) findViewById(R.id.Profile_Smart_but);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ProfileActivity.this,SmartActivity.class);
                 startActivity(i);
             }
         });
     }
 
 
-    public void goToSignUp(){
-        Button button = (Button) findViewById(R.id.login_signup_but);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this,signUpActivity.class);
-                startActivity(i);
-            }
-        });
-    }
 }

@@ -25,6 +25,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name=".signUpActivity" />
+        <activity android:name=".myHomeActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".SmartActivity" />
     </application>
 
 </manifest>
