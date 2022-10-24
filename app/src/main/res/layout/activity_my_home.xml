@@ -680,10 +680,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
-            android:layout_height="107dp">
+            android:layout_height="107dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <ImageButton
+
+        <ImageButton
                 android:id="@+id/myHome_Home"
                 android:layout_width="60dp"
                 android:layout_height="60dp"

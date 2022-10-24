@@ -12,4 +12,17 @@
     <string name="email">E-mail</string>
     <string name="idcode">ID Code</string>
     <string name="smart_actions">Smart Actions</string>
+    <string name="home">Home</string>
+    <string name="smart">Smart</string>
+    <string name="profile">Profile</string>
+    <string name="gotoBed">Go To Bed heyy</string>
+    <string name="vacation">Vacation Mode</string>
+    <string name="myPage">My Page</string>
+    <string name="name">Name</string>
+    <string name="changePass">Change Password</string>
+    <string name="oldPass">Old Password</string>
+    <string name="newPass">New Password</string>
+    <string name="change">Change</string>
+    <string name="someName">Some Random Name</string>
+    <string name="someEmail">email@gmail.com</string>
 </resources>
