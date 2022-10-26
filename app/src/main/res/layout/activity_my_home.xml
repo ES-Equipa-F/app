@@ -49,10 +49,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/room_1"
         android:layout_width="match_parent"
         android:layout_height="87dp"
         android:layout_marginTop="13dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,6 +104,7 @@
             android:id="@+id/textView"
             android:layout_width="60dp"
             android:layout_height="15dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/roboto"
             android:text="Manual"
             android:textAlignment="center"
@@ -114,11 +116,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.361"
-            android:layout_marginBottom="10dp"
             tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/room_1_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
@@ -178,12 +179,13 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
+        android:id="@+id/room_2"
         android:layout_width="match_parent"
         android:layout_height="87dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/room_1">
 
         <ImageView
             android:id="@+id/second_border"
@@ -230,6 +232,7 @@
             android:id="@+id/second_text_switch"
             android:layout_width="60dp"
             android:layout_height="15dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/roboto"
             android:text="Manual"
             android:textAlignment="center"
@@ -241,11 +244,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.361"
-            android:layout_marginBottom="10dp"
             tools:ignore="ImageContrastCheck, ContentDescription,TextContrastCheck" />
 
         <TextView
-            android:id="@+id/second_Title"
+            android:id="@+id/room_2_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
@@ -305,12 +307,13 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
+        android:id="@+id/room_3"
         android:layout_width="match_parent"
         android:layout_height="87dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/room_2">
 
         <ImageView
             android:id="@+id/third_border"
@@ -357,6 +360,7 @@
             android:id="@+id/third_switch_text"
             android:layout_width="60dp"
             android:layout_height="15dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/roboto"
             android:text="Manual"
             android:textAlignment="center"
@@ -368,11 +372,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.361"
-            android:layout_marginBottom="10dp"
             tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:id="@+id/third_title"
+            android:id="@+id/room_3_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
@@ -432,12 +435,13 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout5"
+        android:id="@+id/room_4"
         android:layout_width="match_parent"
         android:layout_height="87dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+        app:layout_constraintTop_toBottomOf="@+id/room_3">
 
         <ImageView
             android:id="@+id/fourth_border"
@@ -484,6 +488,7 @@
             android:id="@+id/fourth_switch_text"
             android:layout_width="60dp"
             android:layout_height="15dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/roboto"
             android:text="Manual"
             android:textAlignment="center"
@@ -495,11 +500,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.361"
-            android:layout_marginBottom="10dp"
             tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:id="@+id/fourth_title"
+            android:id="@+id/room_4_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
@@ -559,13 +563,14 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout6"
+        android:id="@+id/room_5"
         android:layout_width="match_parent"
         android:layout_height="87dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+        app:layout_constraintTop_toBottomOf="@+id/room_4">
 
         <ImageView
             android:id="@+id/fifth_border"
@@ -612,6 +617,7 @@
             android:id="@+id/fifth_switch_text"
             android:layout_width="60dp"
             android:layout_height="15dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/roboto"
             android:text="Manual"
             android:textAlignment="center"
@@ -623,11 +629,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.361"
-            android:layout_marginBottom="10dp"
             tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:id="@+id/fifth_title"
+            android:id="@+id/room_5_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
@@ -694,10 +699,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageView21"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:background="@color/transparent"
+            android:onClick="addRoom"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.936"
@@ -705,7 +712,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/plus"
-            tools:ignore="ImageContrastCheck, ContentDescription" />
+            tools:ignore="ImageContrastCheck, ContentDescription,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
