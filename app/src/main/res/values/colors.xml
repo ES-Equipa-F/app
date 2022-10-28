@@ -11,4 +11,5 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="switch_on">#92E3A9</color>
     <color name="switch_off">#999999</color>
+    <color name="Off_white">#f5f5f5</color>
 </resources>

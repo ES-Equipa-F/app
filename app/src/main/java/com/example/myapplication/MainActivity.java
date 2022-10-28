@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
         goToMyHome();
         goToSignUp();
+
     }
 
     public void goToMyHome(){
@@ -39,4 +40,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
 }

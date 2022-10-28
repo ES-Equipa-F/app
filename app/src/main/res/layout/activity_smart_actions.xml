@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/Off_white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -43,17 +44,53 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/imageFilterView7"
-            android:layout_width="357dp"
-            android:layout_height="110dp"
+        <ImageButton
+            android:id="@+id/add_action"
+            android:layout_width="356dp"
+            android:layout_height="94dp"
+            android:contentDescription="@string/vacation"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.19999999"
-            app:srcCompat="@drawable/smart5"
-            tools:ignore="ImageContrastCheck" />
+            app:layout_constraintVertical_bias="0.55"
+            app:srcCompat="@drawable/smart_4" />
+
+        <ImageButton
+            android:id="@+id/vacation"
+            android:layout_width="356dp"
+            android:layout_height="94dp"
+            android:contentDescription="@string/vacation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.37"
+            app:srcCompat="@drawable/smart_3" />
+
+        <ImageButton
+            android:id="@+id/gotobed"
+            android:layout_width="356dp"
+            android:layout_height="95dp"
+            android:contentDescription="@string/gotobed"
+            app:layout_constraintBottom_toBottomOf="@+id/room_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.19"
+            app:srcCompat="@drawable/smart_5" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vacation"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/vacation"
+            app:layout_constraintEnd_toEndOf="@+id/vacation"
+            app:layout_constraintStart_toStartOf="@+id/vacation"
+            app:layout_constraintTop_toTopOf="@+id/vacation" />
 
         <TextView
             android:id="@+id/textView8"
@@ -62,58 +99,20 @@
             android:text="@string/gotobed"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageFilterView7"
-            app:layout_constraintEnd_toEndOf="@+id/imageFilterView7"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="@+id/imageFilterView7"
-            app:layout_constraintTop_toTopOf="@+id/imageFilterView7"
+            app:layout_constraintBottom_toBottomOf="@+id/gotobed"
+            app:layout_constraintEnd_toEndOf="@+id/gotobed"
+            app:layout_constraintStart_toStartOf="@+id/gotobed"
+            app:layout_constraintTop_toTopOf="@+id/gotobed"
             tools:ignore="TextContrastCheck" />
-
-        <ImageView
-            android:id="@+id/imageView26"
-            android:layout_width="356dp"
-            android:layout_height="108dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.38"
-            app:srcCompat="@drawable/smart3"
-            tools:ignore="ImageContrastCheck, ContentDescription" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/vacation"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView26"
-            app:layout_constraintEnd_toEndOf="@+id/imageView26"
-            app:layout_constraintStart_toStartOf="@+id/imageView26"
-            app:layout_constraintTop_toTopOf="@+id/imageView26"
-            tools:ignore="TextContrastCheck" />
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/imageFilterView6"
-            android:layout_width="358dp"
-            android:layout_height="103dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.57"
-            app:srcCompat="@drawable/smart4"
-            tools:ignore="ImageContrastCheck" />
 
         <ImageView
             android:id="@+id/imageView27"
             android:layout_width="54dp"
             android:layout_height="44dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageFilterView6"
-            app:layout_constraintEnd_toEndOf="@+id/imageFilterView6"
-            app:layout_constraintStart_toStartOf="@+id/imageFilterView6"
-            app:layout_constraintTop_toTopOf="@+id/imageFilterView6"
+            app:layout_constraintBottom_toBottomOf="@+id/add_action"
+            app:layout_constraintEnd_toEndOf="@+id/add_action"
+            app:layout_constraintStart_toStartOf="@+id/add_action"
+            app:layout_constraintTop_toTopOf="@+id/add_action"
             app:srcCompat="@drawable/plus_white"
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
@@ -223,9 +222,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,6 +29,13 @@
         <activity android:name=".myHomeActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".SmartActivity" />
+        <activity android:name=".GoToBed"
+            android:theme="@style/Theme.MyApplication.CustomTheme"
+            ></activity>
+        <activity android:name=".VacationMode"
+            android:theme="@style/Theme.MyApplication.CustomTheme"
+            ></activity>
+
     </application>
 
 </manifest>
