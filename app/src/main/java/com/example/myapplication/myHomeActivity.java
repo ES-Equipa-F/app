@@ -19,10 +19,10 @@ public class myHomeActivity extends AppCompatActivity {
     ConstraintLayout r4;
     ConstraintLayout r5;
     room room_1 = new room();
-    room room_2 = new room();;
-    room room_3 = new room();;
-    room room_4 = new room();;
-    room room_5 = new room();;
+    room room_2 = new room();
+    room room_3 = new room();
+    room room_4 = new room();
+    room room_5 = new room();
     TextView tV;
 
     @Override
