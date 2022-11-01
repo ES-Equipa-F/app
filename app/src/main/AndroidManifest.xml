@@ -35,6 +35,9 @@
         <activity android:name=".VacationMode"
             android:theme="@style/Theme.MyApplication.CustomTheme"
             ></activity>
+        <activity android:name=".AddAction"
+            android:theme="@style/Theme.MyApplication.CustomTheme"
+            ></activity>
 
     </application>
 
