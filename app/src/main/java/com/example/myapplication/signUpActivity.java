@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,7 @@ public class signUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         goToMyHome();
+        //SignUp(); Substitute goToMyHome when database is ready
         goBack();
     }
 
@@ -68,9 +70,21 @@ public class signUpActivity extends AppCompatActivity {
 
 
                 if(!username.equals("") && !email.equals("") && !password.equals("") && !idCode.equals("") && !phoneNumber.equals("")){
-                    // Insert into database
-                }
+                    if(idCode.equals("key")){
+                        Log.println(Log.DEBUG,"SignUp_user",username);
+                        Log.println(Log.DEBUG,"SignUp_email",email);
+                        Log.println(Log.DEBUG,"SignUp_pass",password);
+                        Log.println(Log.DEBUG,"SignUp_idCode",idCode);
+                        Log.println(Log.DEBUG,"SignUp_phone",phoneNumber);
+                        // Insert into database
 
+                        Toast.makeText(getApplicationContext(),"Register Completed!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"This key is not valid!", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
                 else{
                     Toast.makeText(getApplicationContext(),"All fields are required", Toast.LENGTH_SHORT).show();
                 }
