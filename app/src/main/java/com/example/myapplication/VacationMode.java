@@ -32,8 +32,20 @@ public class VacationMode extends AppCompatActivity {
 
         startTime = findViewById(R.id.vacation_start);
         endTime = findViewById(R.id.vacation_end);
+        Button close_vacation = (Button) findViewById(R.id.vacation_done);
+        close_vacation.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                closeWindow();
+            }
+        });
 
     }
+
+    public void closeWindow(){
+        this.finish();
+    }
+
 
     public void popTimeStartPicker(View view){
         TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
