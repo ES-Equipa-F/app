@@ -41,6 +41,7 @@
         <activity android:name=".AddAction"
             android:theme="@style/Theme.MyApplication.CustomTheme"
             ></activity>
+        <activity android:name=".createRoomActivity" />
 
     </application>
 

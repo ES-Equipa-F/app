@@ -701,11 +701,10 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/imageView21"
+            android:id="@+id/createRoom"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:background="@color/transparent"
-            android:onClick="addRoom"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.936"

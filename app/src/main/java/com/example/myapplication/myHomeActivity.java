@@ -36,7 +36,9 @@ public class myHomeActivity extends AppCompatActivity {
         room_3.defineParameters(2, "Quarto");
         //...
 
+
         displayRooms();
+        goCreateRoom();
         goToProfile();
         goToSmart();
     }
@@ -104,6 +106,18 @@ public class myHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(myHomeActivity.this,SmartActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    public void goCreateRoom(){
+        ImageButton button = (ImageButton) findViewById(R.id.createRoom);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(myHomeActivity.this,createRoomActivity.class);
                 startActivity(i);
             }
         });

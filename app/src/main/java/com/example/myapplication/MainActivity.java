@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String pass = "db-es-teamf";
 
 
+    String email="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(rs.next()){
                     status = "valid";
+                    email = params[0];
                 }
 
             } catch (SQLException e) {
@@ -120,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
             if( result.equals("valid") ){
                 //passa para outra pagina
                 Intent i = new Intent(MainActivity.this,myHomeActivity.class);
+                i.putExtra("message_email", email);
                 startActivity(i);
             }
             else{
