@@ -43,6 +43,12 @@ public class myHomeActivity extends AppCompatActivity {
         goToSmart();
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+    }
+
     public void addRoom(View view){
         // Isto é só um teste...
         room_4.defineParameters(3, "Entrada");
@@ -96,6 +102,7 @@ public class myHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(myHomeActivity.this,ProfileActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
         });
     }
@@ -107,6 +114,7 @@ public class myHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(myHomeActivity.this,SmartActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
         });
     }
@@ -119,6 +127,7 @@ public class myHomeActivity extends AppCompatActivity {
 
                 Intent i = new Intent(myHomeActivity.this,createRoomActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
         });
     }

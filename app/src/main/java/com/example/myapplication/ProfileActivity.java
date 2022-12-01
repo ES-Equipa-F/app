@@ -37,6 +37,12 @@ public class ProfileActivity extends AppCompatActivity {
         ChangePassword(oldPass);
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+    }
+
     public void goToHome(){
         ImageButton button = (ImageButton) findViewById(R.id.Profile_Home_but);
         button.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(ProfileActivity.this,myHomeActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             }
         });
     }
@@ -55,6 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(ProfileActivity.this,SmartActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             }
         });
     }

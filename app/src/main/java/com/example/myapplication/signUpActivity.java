@@ -35,14 +35,18 @@ public class signUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        System.out.println("entrei");
         getKeys();
         getEmails();
         //goToMyHome();
         goBack();
         SignUp(); //Substitute goToMyHome when database is ready
 
+    }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
     }
 
     public void getKeys(){
@@ -100,9 +104,12 @@ public class signUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(signUpActivity.this,myHomeActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
         });
     }
+
+
 
     public void goBack(){
         ImageButton button = (ImageButton) findViewById(R.id.signup_goBack);
@@ -111,6 +118,7 @@ public class signUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(signUpActivity.this,MainActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             }
         });
     }
@@ -135,9 +143,13 @@ public class signUpActivity extends AppCompatActivity {
                 email = String.valueOf(EditTextEmail.getText());
                 password = String.valueOf(EditTextPassword.getText());
                 idCode = String.valueOf(EditTextIDCode.getText());
-                int key = Integer.parseInt(idCode);
                 phoneNumber = String.valueOf(EditTextPhoneNumber.getText());
                 address = String.valueOf(EditTextAddress.getText());
+
+                int key=0;
+                if(!idCode.equals("")){
+                    key = Integer.parseInt(idCode);
+                }
 
 
                 if(!username.equals("") && !email.equals("") && !password.equals("") && !idCode.equals("") && !phoneNumber.equals("")&& !address.equals("")){
@@ -148,6 +160,7 @@ public class signUpActivity extends AppCompatActivity {
                             Intent i = new Intent(signUpActivity.this,MainActivity.class);
                             Toast.makeText(getApplicationContext(),"Account created successfully!", Toast.LENGTH_SHORT).show();
                             startActivity(i);
+                            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
                         }
                         else{
                             Toast.makeText(getApplicationContext(),"Email is already registered!", Toast.LENGTH_SHORT).show();
@@ -156,8 +169,7 @@ public class signUpActivity extends AppCompatActivity {
                     else{
                         Toast.makeText(getApplicationContext(),"This key is not valid!", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else{
+                }else{
                     Toast.makeText(getApplicationContext(),"All fields are required", Toast.LENGTH_SHORT).show();
                 }
             }

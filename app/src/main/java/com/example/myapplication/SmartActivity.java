@@ -27,6 +27,12 @@ public class SmartActivity extends AppCompatActivity {
         smart_add();
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+    }
+
     public void goToHome(){
         ImageButton button = (ImageButton) findViewById(R.id.Smart_Home_but);
         button.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +40,7 @@ public class SmartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(SmartActivity.this,myHomeActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             }
         });
     }
@@ -45,6 +52,7 @@ public class SmartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(SmartActivity.this,ProfileActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
         });
     }

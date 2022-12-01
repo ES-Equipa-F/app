@@ -31,11 +31,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         goToMyHome();
         goToSignUp();
 
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
     }
 
     public void goToMyHome(){
@@ -58,9 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.validateCredentialsFromDB validate = new MainActivity.validateCredentialsFromDB();
                 validate.execute(email, password);
 
-
-
-
             }
         });
     }
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this,signUpActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
         });
     }
@@ -125,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this,myHomeActivity.class);
                 i.putExtra("message_email", email);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
             else{
                 //erro
