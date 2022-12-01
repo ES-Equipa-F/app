@@ -77,9 +77,9 @@ public class signUpActivity extends AppCompatActivity {
         return false;
     }
 
-    public void addUser(String username, String password, String email,String phoneNumber, int key){
+    public void addUser(String username, String password, String email,String phoneNumber, int key,String address){
         String insert_house, insert_user, update_key;
-        insert_house = "INSERT INTO house (id, address) values ("+key+",\""+username+"'s house\");";
+        insert_house = "INSERT INTO house (id, address) values ("+key+",\""+address+"\");";
         insert_user= "INSERT INTO user (email, name, password, phone_number, house_id, activation_key_id) values ("+"\""+email+"\""+"," +
                                                                                                                   "\""+username+"\""+
                                                                                                                   ",\""+password+"\""+
@@ -116,19 +116,20 @@ public class signUpActivity extends AppCompatActivity {
     }
 
     public void SignUp(){
-        EditText EditTextUserName, EditTextEmail, EditTextPassword, EditTextIDCode, EditTextPhoneNumber;
+        EditText EditTextUserName, EditTextEmail, EditTextPassword, EditTextIDCode, EditTextPhoneNumber, EditTextAddress;
 
         Button button = (Button) findViewById(R.id.signup_but);
         EditTextUserName = findViewById(R.id.editTextTextPersonName2);
         EditTextPhoneNumber = findViewById(R.id.editTextTextPersonName3);
         EditTextEmail = findViewById(R.id.editTextTextPersonName4);
         EditTextIDCode = findViewById(R.id.editTextTextPersonName5);
-        EditTextPassword = findViewById(R.id.editTextTextPassword2);
+        EditTextPassword = findViewById(R.id.editTextTextPassword4);
+        EditTextAddress = findViewById(R.id.address);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username, email, password, idCode, phoneNumber;
+                String username, email, password, idCode, phoneNumber, address;
 
                 username = String.valueOf(EditTextUserName.getText());
                 email = String.valueOf(EditTextEmail.getText());
@@ -136,13 +137,14 @@ public class signUpActivity extends AppCompatActivity {
                 idCode = String.valueOf(EditTextIDCode.getText());
                 int key = Integer.parseInt(idCode);
                 phoneNumber = String.valueOf(EditTextPhoneNumber.getText());
+                address = String.valueOf(EditTextAddress.getText());
 
 
-                if(!username.equals("") && !email.equals("") && !password.equals("") && !idCode.equals("") && !phoneNumber.equals("")){
+                if(!username.equals("") && !email.equals("") && !password.equals("") && !idCode.equals("") && !phoneNumber.equals("")&& !address.equals("")){
                     if(checkKey(key)){
                         // Insert into database
                         if(!checkEmail(email)){
-                            addUser(username,password,email,phoneNumber,key);
+                            addUser(username,password,email,phoneNumber,key, address);
                             Intent i = new Intent(signUpActivity.this,MainActivity.class);
                             Toast.makeText(getApplicationContext(),"Account created successfully!", Toast.LENGTH_SHORT).show();
                             startActivity(i);
