@@ -92,8 +92,40 @@ public class signUpActivity extends AppCompatActivity {
                                                                                                                   ","+key+");";
         update_key = "update activation_key SET activated=true WHERE id="+key;
 
+        //provisorio para adicionar rooms
+        String insert_room1 = "INSERT INTO room (id, name, activated, house_id) values("+
+                                "\"ESP_1\"," +
+                                "\"NOT_DEFINED\","+
+                                "0,"+
+                                key+")";
+        String insert_room2 = "INSERT INTO room (id, name, activated, house_id) values("+
+                                "\"ESP_2\"," +
+                                "\"NOT_DEFINED\","+
+                                "0,"+
+                                key+")";
+
+        String insert_action1 = "INSERT INTO action (id, manual_control, brightness, motion_sense, room_id) values("+
+                                "\"ESP_1\"," +
+                                "0,"+
+                                "0,"+
+                                "0,"+
+                                "\"ESP_1\")";
+
+        String insert_action2 = "INSERT INTO action (id, manual_control, brightness, motion_sense, room_id) values("+
+                                "\"ESP_2\"," +
+                                "0,"+
+                                "0,"+
+                                "0,"+
+                                "\"ESP_2\")";
+
         signUpActivity.addUserToDB setUser = new signUpActivity.addUserToDB();
-        setUser.execute(insert_house, insert_user, update_key);
+        setUser.execute(insert_house,
+                        insert_user,
+                        update_key,
+                        insert_room1,
+                        insert_room2,
+                        insert_action1,
+                        insert_action2);
 
     }
 
@@ -267,6 +299,13 @@ public class signUpActivity extends AppCompatActivity {
                 st.executeUpdate(params[0]);
                 st.executeUpdate(params[1]);
                 st.executeUpdate(params[2]);
+
+                //provisorio para adicionar rooms
+                st.executeUpdate(params[3]);
+                st.executeUpdate(params[4]);
+                st.executeUpdate(params[5]);
+                st.executeUpdate(params[6]);
+
 
             } catch (SQLException e) {
                 e.printStackTrace();

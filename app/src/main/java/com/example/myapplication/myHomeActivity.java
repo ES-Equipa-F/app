@@ -25,10 +25,17 @@ public class myHomeActivity extends AppCompatActivity {
     room room_5 = new room();
     TextView tV;
 
+    String current_email="";
+    String current_house_id="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_home);
+
+        current_email = getIntent().getStringExtra("message_email");
+        current_house_id = getIntent().getStringExtra("message_house_id");
+
 
         // Retrieve da table Rooms da DB aqui
         room_1.defineParameters(0, "Sala");
@@ -126,6 +133,8 @@ public class myHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i = new Intent(myHomeActivity.this,createRoomActivity.class);
+                i.putExtra("message_email", current_email);
+                i.putExtra("message_house_id", current_house_id);
                 startActivity(i);
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }

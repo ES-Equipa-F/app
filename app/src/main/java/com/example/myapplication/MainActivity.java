@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     String email="";
+    String house_id="";
 
 
     @Override
@@ -100,7 +101,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if(rs.next()){
                     status = "valid";
-                    email = params[0];
+                    email = rs.getString("email");
+                    house_id=rs.getString("house_id");
+
                 }
 
             } catch (SQLException e) {
@@ -126,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 //passa para outra pagina
                 Intent i = new Intent(MainActivity.this,myHomeActivity.class);
                 i.putExtra("message_email", email);
+                i.putExtra("message_house_id", house_id);
                 startActivity(i);
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
