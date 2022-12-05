@@ -31,10 +31,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.008"
+            app:layout_constraintHorizontal_bias="0.052"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.111"
             tools:ignore="TextContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -171,20 +171,20 @@
             tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:id="@+id/editTextTextPersonName8"
+            android:id="@+id/name_mypage"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:ems="10"
             android:importantForAutofill="no"
             android:text="@string/someName"
-            android:textSize="18sp"
             android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.223"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.131"
+            app:layout_constraintVertical_bias="0.13"
             tools:ignore="TextContrastCheck" />
 
         <TextView
@@ -204,7 +204,7 @@
             tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:id="@+id/editTextTextEmailAddress2"
+            android:id="@+id/email_mypage"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:ems="10"
@@ -298,6 +298,26 @@
             app:layout_constraintTop_toBottomOf="@+id/editNewPassword"
             app:layout_constraintVertical_bias="0.06"
             tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="100dp"
+            android:layout_height="32dp"
+            android:background="@drawable/logoutbutton"
+            android:fontFamily="@font/roboto"
+            android:text="@string/logout"
+            android:textAllCaps="false"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.948"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.939"
+            tools:ignore="TextContrastCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

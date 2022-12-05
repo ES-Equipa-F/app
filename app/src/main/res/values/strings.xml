@@ -26,4 +26,6 @@
     <string name="someName">Some Random Name</string>
     <string name="someEmail">email@gmail.com</string>
     <string name="address">Address</string>
+    <string name="chooseEsp">Choose the Light</string>
+    <string name="logout">Logout</string>
 </resources>

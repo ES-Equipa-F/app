@@ -16,4 +16,5 @@
     <color name="lightGrey">#EEE</color>
     <color name="lightPurple">#E6DEFF</color>
     <color name="gray">#808080</color>
+    <color name="red">#FF0000</color>
 </resources>
