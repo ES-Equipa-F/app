@@ -1,30 +1,35 @@
 package com.example.myapplication.models;
 
+import android.view.View;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import java.util.ArrayList;
+
 public class room {
-    int id;
+    String id;
     String name;
     int manual_control;
     int brightness;
     int motion_sense;
+    ConstraintLayout CL;
 
 
-    public room() {
-        this.id = -1;
-        this.name = "ND";
-        //this.manual_control=0;
-        //this.brightness=0;
-        //this.motion_sense=0;
-    }
 
-    public void defineParameters(int id, String name){
+    public room(String id, String name, int manual_control, int brightness, int motion_sense) {
         this.id = id;
         this.name = name;
+        this.manual_control = manual_control;
+        this.brightness = brightness;
+        this.motion_sense = motion_sense;
     }
-    public int getId() {
+
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -34,5 +39,41 @@ public class room {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getManual_control() {
+        return manual_control;
+    }
+
+    public void setManual_control(int manual_control) {
+        this.manual_control = manual_control;
+    }
+
+    public int getBrightness() {
+        return brightness;
+    }
+
+    public void setBrightness(int brightness) {
+        this.brightness = brightness;
+    }
+
+    public int getMotion_sense() {
+        return motion_sense;
+    }
+
+    public void setMotion_sense(int motion_sense) {
+        this.motion_sense = motion_sense;
+    }
+
+    public ConstraintLayout getCL() {
+        return CL;
+    }
+
+    public void setCL(ConstraintLayout CL) {
+        this.CL = CL;
+    }
+
+    public void show(){
+        this.CL.setVisibility(View.VISIBLE);
     }
 }
