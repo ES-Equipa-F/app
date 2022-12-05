@@ -1,15 +1,26 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.myapplication.models.room;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class myHomeActivity extends AppCompatActivity {
 
@@ -37,6 +48,10 @@ public class myHomeActivity extends AppCompatActivity {
         current_house_id = getIntent().getStringExtra("message_house_id");
 
 
+
+        //Sacar info da db
+
+
         // Retrieve da table Rooms da DB aqui
         room_1.defineParameters(0, "Sala");
         room_2.defineParameters(1, "Cozinha");
@@ -50,17 +65,81 @@ public class myHomeActivity extends AppCompatActivity {
         goToSmart();
     }
 
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+/*
+    private class retrieveRoomsFromDB extends AsyncTask<String, Void, String> {
+        String res = "";
+        Connection con = null;
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                ResultSet rs = null;
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection(url, user, pass);
+                Statement st = con.createStatement();
+
+                String query = "SELECT" +
+                                    "room.id AS id," +
+                                    "room.name AS name," +
+                                    "action.manual_control AS manual_control," +
+                                    "action.brightness AS brightness," +
+                                    "action.motion_sense AS motion_sense" +
+                                "FROM room" +
+                                    "JOIN action" +
+                                    "ON room.id = action.room_id" +
+                                "WHERE" +
+                                    "room.house_id ="+current_house_id;
+
+                rs = st.executeQuery(query);
+
+
+                while(rs.next()){
+                    //Se o device ainda não estiver atribuido a uma room..
+                    if( rs.getString("activated").equals("0") ){
+                        //Adiciona à lista de ids por utilizar
+                        String curr_id = rs.getString("id");
+                        free_device_ids.add( curr_id );
+                    }
+                    //Se já estiver atribuido a uma sala com nome
+                    else{
+                        //Adiciona à lista de nomes de rooms já existentes
+                        String curr_name = rs.getString("name");
+                        room_names_in_use.add( curr_name );
+
+                    }
+
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                res = e.toString();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } finally {
+                if(con != null){
+                    try {
+                        con.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return "";
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+        }
     }
 
+*/
     public void addRoom(View view){
         // Isto é só um teste...
         room_4.defineParameters(3, "Entrada");
         displayRooms();
     }
+
     public void displayRooms(){
         if( room_1.getId() != -1 ){
             tV = (TextView) findViewById(R.id.room_1_name);
@@ -94,6 +173,7 @@ public class myHomeActivity extends AppCompatActivity {
         }
     }
 
+
     public void show(ConstraintLayout room){
         room.setVisibility(View.VISIBLE);
     }
@@ -108,6 +188,8 @@ public class myHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(myHomeActivity.this,ProfileActivity.class);
+                i.putExtra("message_email", current_email);
+                i.putExtra("message_house_id", current_house_id);
                 startActivity(i);
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
@@ -120,6 +202,8 @@ public class myHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(myHomeActivity.this,SmartActivity.class);
+                i.putExtra("message_email", current_email);
+                i.putExtra("message_house_id", current_house_id);
                 startActivity(i);
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
@@ -139,5 +223,13 @@ public class myHomeActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
         });
+    }
+
+
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
     }
 }

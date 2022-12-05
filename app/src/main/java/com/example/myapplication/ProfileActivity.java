@@ -22,11 +22,18 @@ public class ProfileActivity extends AppCompatActivity {
     private Button buttonChange;
     //private String oldPassstr, newPassstr; //tem a pass que o user vai inserir
 
+    String current_email="";
+    String current_house_id="";
+
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        current_email = getIntent().getStringExtra("message_email");
+        current_house_id = getIntent().getStringExtra("message_house_id");
 
         newPass = (EditText) findViewById(R.id.editNewPassword);
         oldPass = (EditText) findViewById(R.id.editOldPassword);
@@ -49,6 +56,8 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ProfileActivity.this,myHomeActivity.class);
+                i.putExtra("message_email", current_email);
+                i.putExtra("message_house_id", current_house_id);
                 startActivity(i);
                 overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             }
@@ -61,6 +70,8 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ProfileActivity.this,SmartActivity.class);
+                i.putExtra("message_email", current_email);
+                i.putExtra("message_house_id", current_house_id);
                 startActivity(i);
                 overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             }
