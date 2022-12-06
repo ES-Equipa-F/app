@@ -88,7 +88,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <Switch
-            android:id="@+id/switch3"
+            android:id="@+id/manual1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
@@ -194,7 +194,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <SeekBar
-            android:id="@+id/seekBar2"
+            android:id="@+id/brightness1"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="140dp"
             android:layout_height="30dp"
@@ -249,7 +249,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <Switch
-            android:id="@+id/second_switch"
+            android:id="@+id/manual2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
@@ -355,7 +355,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <SeekBar
-            android:id="@+id/second_seekbar"
+            android:id="@+id/brightness2"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="140dp"
             android:layout_height="30dp"
@@ -410,7 +410,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <Switch
-            android:id="@+id/third_switch"
+            android:id="@+id/manual3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
@@ -517,7 +517,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <SeekBar
-            android:id="@+id/third_seekbar"
+            android:id="@+id/brightness3"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="140dp"
             android:layout_height="30dp"
@@ -572,7 +572,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <Switch
-            android:id="@+id/fourth_switch"
+            android:id="@+id/manunal4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
@@ -679,7 +679,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <SeekBar
-            android:id="@+id/fourth_seekbar"
+            android:id="@+id/brightness4"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="140dp"
             android:layout_height="30dp"
@@ -735,7 +735,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <Switch
-            android:id="@+id/fifth_switch"
+            android:id="@+id/manual5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
@@ -842,7 +842,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <SeekBar
-            android:id="@+id/fifth_seekbar"
+            android:id="@+id/brightness5"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="140dp"
             android:layout_height="30dp"

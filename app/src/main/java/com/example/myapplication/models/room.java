@@ -1,6 +1,8 @@
 package com.example.myapplication.models;
 
 import android.view.View;
+import android.widget.SeekBar;
+import android.widget.Switch;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -13,8 +15,9 @@ public class room {
     int brightness;
     int motion_sense;
     ConstraintLayout CL;
-
-
+    SeekBar sB;
+    Switch manual_switch;
+    Switch motion_switch;
 
     public room(String id, String name, int manual_control, int brightness, int motion_sense) {
         this.id = id;
@@ -75,5 +78,29 @@ public class room {
 
     public void show(){
         this.CL.setVisibility(View.VISIBLE);
+    }
+
+    public SeekBar getsB() {
+        return sB;
+    }
+
+    public void setsB(SeekBar sB) {
+        this.sB = sB;
+    }
+
+    public Switch getManual_switch() {
+        return manual_switch;
+    }
+
+    public void setManual_switch(Switch manual_switch) {
+        this.manual_switch = manual_switch;
+    }
+
+    public Switch getMotion_switch() {
+        return motion_switch;
+    }
+
+    public void setMotion_switch(Switch motion_switch) {
+        this.motion_switch = motion_switch;
     }
 }
