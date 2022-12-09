@@ -73,6 +73,9 @@ public class createRoomActivity extends AppCompatActivity {
                 if( nameIsInvalid() ){
                     Toast.makeText(createRoomActivity.this,"Name Invalid", Toast.LENGTH_SHORT).show();
                 }
+                else if( free_device_ids.isEmpty() ){
+                    Toast.makeText(createRoomActivity.this,"No devices are available", Toast.LENGTH_SHORT).show();
+                }
                 else{
                     //Se o nome for válido, dar update na DB
                     String define_room_query =
