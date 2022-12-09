@@ -55,6 +55,7 @@ public class createRoomActivity extends AppCompatActivity {
         createRoomActivity.retrieveFreeDeviceIds retrieveFreeDeviceIds = new createRoomActivity.retrieveFreeDeviceIds();
         retrieveFreeDeviceIds.execute("");
 
+        goBack();
         createRoom();
 
 
@@ -85,6 +86,21 @@ public class createRoomActivity extends AppCompatActivity {
         });
     }
 
+
+    public void goBack(){
+        ImageButton button = (ImageButton) findViewById(R.id.createRoom_goBack);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(createRoomActivity.this,myHomeActivity.class);
+                i.putExtra("message_email", current_email);
+                i.putExtra("message_house_id", current_house_id);
+                startActivity(i);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+            }
+        });
+
+    }
     public boolean nameIsInvalid(){
         if( selected_device_name.equals("") ) return true;
         for( String curr : room_names_in_use ){

@@ -573,6 +573,7 @@ public class myHomeActivity extends AppCompatActivity {
         });
     }
 
+
     public void goToSmart(){
         ImageButton button = (ImageButton) findViewById(R.id.myHome_Smart);
         button.setOnClickListener(new View.OnClickListener() {
