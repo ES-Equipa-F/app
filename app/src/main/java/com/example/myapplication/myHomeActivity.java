@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -170,33 +171,17 @@ public class myHomeActivity extends AppCompatActivity {
             }
             else{
                 for(int i=0; i<rooms.size(); i++){
+                    int curr_manual_control, curr_motion_sense, curr_brightness;
                     if(i==0){
                         tV = (TextView) findViewById(R.id.room_1_name);
                         tV.setText( rooms.get(i).getName() );
-                        rooms.get(i).setCL( (ConstraintLayout) findViewById(R.id.room_1) );
-                        rooms.get(i).show();
 
-                        rooms.get(0).setManual_switch((Switch) findViewById(R.id.manual1));
-                        rooms.get(0).getManual_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-                            @Override
-                            public void onCheckedChanged( CompoundButton buttonView, boolean isChecked){
-                                String id = rooms.get(0).getId();
-                                if(isChecked){
-                                    rooms.get(0).setManual_control(1);
-                                    //dar enable aos outros elementos aqui
-                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
-                                    updateRoomParameterOnDB.execute(id, "manual_control", "1");
-                                }
-                                else{
-                                    rooms.get(0).setManual_control(0);
-                                    //dar disable aos outros elementos aqui
-                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
-                                    updateRoomParameterOnDB.execute(id, "manual_control", "0");
-                                }
-                            }
-                        });
-
+                        //Setup ao texto com "Motion"
+                        rooms.get(0).setMotion_text((TextView) findViewById(R.id.motion1text));
+                        //Setup ao switch de Motion Sense
                         rooms.get(0).setMotion_switch((Switch) findViewById(R.id.motion1));
+                        curr_motion_sense = rooms.get(0).getMotion_sense();
+                        rooms.get(0).getMotion_switch().setChecked(curr_motion_sense==1);
                         rooms.get(0).getMotion_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
                             @Override
                             public void onCheckedChanged( CompoundButton buttonView, boolean isChecked){
@@ -209,15 +194,17 @@ public class myHomeActivity extends AppCompatActivity {
                                 else{
                                     rooms.get(0).setMotion_sense(1);
                                     myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
-                                    updateRoomParameterOnDB.execute(id, "motion_sense", "1");
+                                    updateRoomParameterOnDB.execute(id, "motion_sense", "0");
                                 }
                             }
                         });
 
-
-
-
+                        //Setup ao icone da brightness
+                        rooms.get(0).setBrightness_icon((ImageView) findViewById(R.id.brightnessimg1));
+                        //Setup à SeekBar de controlo da Brightness
                         rooms.get(0).setsB((SeekBar) findViewById(R.id.brightness1) );
+                        curr_brightness = rooms.get(0).getBrightness();
+                        rooms.get(0).getsB().setProgress(curr_brightness);
                         rooms.get(0).getsB().setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                             @Override
                             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
@@ -233,14 +220,68 @@ public class myHomeActivity extends AppCompatActivity {
                                 updateRoomParameterOnDB.execute(id, "brightness", brightness);
                             }
                         });
+
+                        //Setup ao switch de Manual Control
+                        rooms.get(0).setManual_switch((Switch) findViewById(R.id.manual1));
+                        curr_manual_control = rooms.get(0).getManual_control();
+                        rooms.get(0).getManual_switch().setChecked(curr_manual_control==1);
+                        rooms.get(0).getManual_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+                            @Override
+                            public void onCheckedChanged( CompoundButton buttonView, boolean isChecked){
+                                String id = rooms.get(0).getId();
+                                if(isChecked){
+                                    rooms.get(0).setManual_control(1);
+                                    rooms.get(0).updateControlsDisplay();
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "manual_control", "1");
+                                }
+                                else{
+                                    rooms.get(0).setManual_control(0);
+                                    rooms.get(0).updateControlsDisplay();
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "manual_control", "0");
+                                }
+                            }
+                        });
+
+                        rooms.get(i).updateControlsDisplay();
+                        rooms.get(i).setCL( (ConstraintLayout) findViewById(R.id.room_1) );
+                        rooms.get(i).show();
                     }
                     if(i==1){
                         tV = (TextView) findViewById(R.id.room_2_name);
                         tV.setText( rooms.get(i).getName() );
-                        rooms.get(i).setCL( (ConstraintLayout) findViewById(R.id.room_2) );
-                        rooms.get(i).show();
+
+                        //Setup ao texto com "Motion"
+                        rooms.get(i).setMotion_text((TextView) findViewById(R.id.motion2text));
+                        //Setup ao switch de Motion Sense
+                        rooms.get(i).setMotion_switch((Switch) findViewById(R.id.motion2));
+                        curr_motion_sense = rooms.get(i).getMotion_sense();
+                        rooms.get(i).getMotion_switch().setChecked(curr_motion_sense==1);
+                        rooms.get(i).getMotion_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+                            @Override
+                            public void onCheckedChanged( CompoundButton buttonView, boolean isChecked){
+                                String id = rooms.get(1).getId();
+                                if(isChecked){
+                                    rooms.get(1).setMotion_sense(1);
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "motion_sense", "1");
+                                }
+                                else{
+                                    rooms.get(1).setMotion_sense(0);
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "motion_sense", "0");
+                                }
+                            }
+                        });
+
+                        //Setup ao icone da brightness
+                        rooms.get(i).setBrightness_icon((ImageView) findViewById(R.id.brightnessimg2));
+                        //Setup à SeekBar de controlo da Brightness
                         rooms.get(i).setsB((SeekBar) findViewById(R.id.brightness2) );
-                        rooms.get(1).getsB().setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                        curr_brightness = rooms.get(i).getBrightness();
+                        rooms.get(i).getsB().setProgress(curr_brightness);
+                        rooms.get(i).getsB().setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                             @Override
                             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                                 rooms.get(1).setBrightness( progress );
@@ -255,14 +296,68 @@ public class myHomeActivity extends AppCompatActivity {
                                 updateRoomParameterOnDB.execute(id, "brightness", brightness);
                             }
                         });
+
+                        //Setup ao switch de Manual Control
+                        rooms.get(i).setManual_switch((Switch) findViewById(R.id.manual2));
+                        curr_manual_control = rooms.get(i).getManual_control();
+                        rooms.get(i).getManual_switch().setChecked(curr_manual_control==1);
+                        rooms.get(i).getManual_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+                            @Override
+                            public void onCheckedChanged( CompoundButton buttonView, boolean isChecked){
+                                String id = rooms.get(1).getId();
+                                if(isChecked){
+                                    rooms.get(1).setManual_control(1);
+                                    rooms.get(1).updateControlsDisplay();
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "manual_control", "1");
+                                }
+                                else{
+                                    rooms.get(1).setManual_control(0);
+                                    rooms.get(1).updateControlsDisplay();
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "manual_control", "0");
+                                }
+                            }
+                        });
+
+                        rooms.get(i).updateControlsDisplay();
+                        rooms.get(i).setCL( (ConstraintLayout) findViewById(R.id.room_2) );
+                        rooms.get(i).show();
                     }
                     if(i==2){
                         tV = (TextView) findViewById(R.id.room_3_name);
                         tV.setText( rooms.get(i).getName() );
-                        rooms.get(i).setCL( (ConstraintLayout) findViewById(R.id.room_3) );
-                        rooms.get(i).show();
+
+                        //Setup ao texto com "Motion"
+                        rooms.get(i).setMotion_text((TextView) findViewById(R.id.motion3text));
+                        //Setup ao switch de Motion Sense
+                        rooms.get(i).setMotion_switch((Switch) findViewById(R.id.motion3));
+                        curr_motion_sense = rooms.get(i).getMotion_sense();
+                        rooms.get(i).getMotion_switch().setChecked(curr_motion_sense==1);
+                        rooms.get(i).getMotion_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+                            @Override
+                            public void onCheckedChanged( CompoundButton buttonView, boolean isChecked){
+                                String id = rooms.get(2).getId();
+                                if(isChecked){
+                                    rooms.get(2).setMotion_sense(1);
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "motion_sense", "1");
+                                }
+                                else{
+                                    rooms.get(2).setMotion_sense(0);
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "motion_sense", "0");
+                                }
+                            }
+                        });
+
+                        //Setup ao icone da brightness
+                        rooms.get(i).setBrightness_icon((ImageView) findViewById(R.id.brightnessimg3));
+                        //Setup à SeekBar de controlo da Brightness
                         rooms.get(i).setsB((SeekBar) findViewById(R.id.brightness3) );
-                        rooms.get(2).getsB().setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                        curr_brightness = rooms.get(i).getBrightness();
+                        rooms.get(i).getsB().setProgress(curr_brightness);
+                        rooms.get(i).getsB().setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                             @Override
                             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                                 rooms.get(2).setBrightness( progress );
@@ -277,14 +372,68 @@ public class myHomeActivity extends AppCompatActivity {
                                 updateRoomParameterOnDB.execute(id, "brightness", brightness);
                             }
                         });
+
+                        //Setup ao switch de Manual Control
+                        rooms.get(i).setManual_switch((Switch) findViewById(R.id.manual3));
+                        curr_manual_control = rooms.get(i).getManual_control();
+                        rooms.get(i).getManual_switch().setChecked(curr_manual_control==1);
+                        rooms.get(i).getManual_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+                            @Override
+                            public void onCheckedChanged( CompoundButton buttonView, boolean isChecked){
+                                String id = rooms.get(2).getId();
+                                if(isChecked){
+                                    rooms.get(2).setManual_control(1);
+                                    rooms.get(2).updateControlsDisplay();
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "manual_control", "1");
+                                }
+                                else{
+                                    rooms.get(2).setManual_control(0);
+                                    rooms.get(2).updateControlsDisplay();
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "manual_control", "0");
+                                }
+                            }
+                        });
+
+                        rooms.get(i).updateControlsDisplay();
+                        rooms.get(i).setCL( (ConstraintLayout) findViewById(R.id.room_3) );
+                        rooms.get(i).show();
                     }
                     if(i==3){
                         tV = (TextView) findViewById(R.id.room_4_name);
                         tV.setText( rooms.get(i).getName() );
-                        rooms.get(i).setCL( (ConstraintLayout) findViewById(R.id.room_4) );
-                        rooms.get(i).show();
+
+                        //Setup ao texto com "Motion"
+                        rooms.get(i).setMotion_text((TextView) findViewById(R.id.motion4text));
+                        //Setup ao switch de Motion Sense
+                        rooms.get(i).setMotion_switch((Switch) findViewById(R.id.motion4));
+                        curr_motion_sense = rooms.get(i).getMotion_sense();
+                        rooms.get(i).getMotion_switch().setChecked(curr_motion_sense==1);
+                        rooms.get(i).getMotion_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+                            @Override
+                            public void onCheckedChanged( CompoundButton buttonView, boolean isChecked){
+                                String id = rooms.get(3).getId();
+                                if(isChecked){
+                                    rooms.get(3).setMotion_sense(1);
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "motion_sense", "1");
+                                }
+                                else{
+                                    rooms.get(3).setMotion_sense(0);
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "motion_sense", "0");
+                                }
+                            }
+                        });
+
+                        //Setup ao icone da brightness
+                        rooms.get(i).setBrightness_icon((ImageView) findViewById(R.id.brightnessimg4));
+                        //Setup à SeekBar de controlo da Brightness
                         rooms.get(i).setsB((SeekBar) findViewById(R.id.brightness4) );
-                        rooms.get(3).getsB().setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                        curr_brightness = rooms.get(i).getBrightness();
+                        rooms.get(i).getsB().setProgress(curr_brightness);
+                        rooms.get(i).getsB().setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                             @Override
                             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                                 rooms.get(3).setBrightness( progress );
@@ -299,14 +448,68 @@ public class myHomeActivity extends AppCompatActivity {
                                 updateRoomParameterOnDB.execute(id, "brightness", brightness);
                             }
                         });
+
+                        //Setup ao switch de Manual Control
+                        rooms.get(i).setManual_switch((Switch) findViewById(R.id.manual4));
+                        curr_manual_control = rooms.get(i).getManual_control();
+                        rooms.get(i).getManual_switch().setChecked(curr_manual_control==1);
+                        rooms.get(i).getManual_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+                            @Override
+                            public void onCheckedChanged( CompoundButton buttonView, boolean isChecked){
+                                String id = rooms.get(3).getId();
+                                if(isChecked){
+                                    rooms.get(3).setManual_control(1);
+                                    rooms.get(3).updateControlsDisplay();
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "manual_control", "1");
+                                }
+                                else{
+                                    rooms.get(3).setManual_control(0);
+                                    rooms.get(3).updateControlsDisplay();
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "manual_control", "0");
+                                }
+                            }
+                        });
+
+                        rooms.get(i).updateControlsDisplay();
+                        rooms.get(i).setCL( (ConstraintLayout) findViewById(R.id.room_4) );
+                        rooms.get(i).show();
                     }
                     if(i==4){
                         tV = (TextView) findViewById(R.id.room_5_name);
                         tV.setText( rooms.get(i).getName() );
-                        rooms.get(i).setCL( (ConstraintLayout) findViewById(R.id.room_5) );
-                        rooms.get(i).show();
+
+                        //Setup ao texto com "Motion"
+                        rooms.get(i).setMotion_text((TextView) findViewById(R.id.motion5text));
+                        //Setup ao switch de Motion Sense
+                        rooms.get(i).setMotion_switch((Switch) findViewById(R.id.motion5));
+                        curr_motion_sense = rooms.get(i).getMotion_sense();
+                        rooms.get(i).getMotion_switch().setChecked(curr_motion_sense==1);
+                        rooms.get(i).getMotion_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+                            @Override
+                            public void onCheckedChanged( CompoundButton buttonView, boolean isChecked){
+                                String id = rooms.get(4).getId();
+                                if(isChecked){
+                                    rooms.get(4).setMotion_sense(1);
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "motion_sense", "1");
+                                }
+                                else{
+                                    rooms.get(4).setMotion_sense(0);
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "motion_sense", "0");
+                                }
+                            }
+                        });
+
+                        //Setup ao icone da brightness
+                        rooms.get(i).setBrightness_icon((ImageView) findViewById(R.id.brightnessimg5));
+                        //Setup à SeekBar de controlo da Brightness
                         rooms.get(i).setsB((SeekBar) findViewById(R.id.brightness5) );
-                        rooms.get(4).getsB().setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                        curr_brightness = rooms.get(i).getBrightness();
+                        rooms.get(i).getsB().setProgress(curr_brightness);
+                        rooms.get(i).getsB().setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                             @Override
                             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                                 rooms.get(4).setBrightness( progress );
@@ -321,6 +524,33 @@ public class myHomeActivity extends AppCompatActivity {
                                 updateRoomParameterOnDB.execute(id, "brightness", brightness);
                             }
                         });
+
+                        //Setup ao switch de Manual Control
+                        rooms.get(i).setManual_switch((Switch) findViewById(R.id.manual5));
+                        curr_manual_control = rooms.get(i).getManual_control();
+                        rooms.get(i).getManual_switch().setChecked(curr_manual_control==1);
+                        rooms.get(i).getManual_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+                            @Override
+                            public void onCheckedChanged( CompoundButton buttonView, boolean isChecked){
+                                String id = rooms.get(4).getId();
+                                if(isChecked){
+                                    rooms.get(4).setManual_control(1);
+                                    rooms.get(4).updateControlsDisplay();
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "manual_control", "1");
+                                }
+                                else{
+                                    rooms.get(4).setManual_control(0);
+                                    rooms.get(4).updateControlsDisplay();
+                                    myHomeActivity.updateRoomParameterOnDB updateRoomParameterOnDB = new myHomeActivity.updateRoomParameterOnDB();
+                                    updateRoomParameterOnDB.execute(id, "manual_control", "0");
+                                }
+                            }
+                        });
+
+                        rooms.get(i).updateControlsDisplay();
+                        rooms.get(i).setCL( (ConstraintLayout) findViewById(R.id.room_5) );
+                        rooms.get(i).show();
                     }
                 }
             }

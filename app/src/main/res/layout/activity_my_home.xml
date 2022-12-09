@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="87dp"
         android:layout_marginTop="13dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -168,7 +168,7 @@
             app:layout_constraintVertical_bias="0.089" />
 
         <ImageView
-            android:id="@+id/imageView19"
+            android:id="@+id/brightnessimg1"
             android:layout_width="32dp"
             android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -217,7 +217,7 @@
         android:id="@+id/room_2"
         android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/room_1">
@@ -329,7 +329,7 @@
             app:layout_constraintVertical_bias="0.089" />
 
         <ImageView
-            android:id="@+id/second_sun_icon"
+            android:id="@+id/brightnessimg2"
             android:layout_width="32dp"
             android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -378,7 +378,7 @@
         android:id="@+id/room_3"
         android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/room_2">
@@ -491,7 +491,7 @@
             app:layout_constraintVertical_bias="0.089" />
 
         <ImageView
-            android:id="@+id/third_sun_icon"
+            android:id="@+id/brightnessimg3"
             android:layout_width="32dp"
             android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -540,7 +540,7 @@
         android:id="@+id/room_4"
         android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/room_3">
@@ -572,7 +572,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <Switch
-            android:id="@+id/manunal4"
+            android:id="@+id/manual4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
@@ -653,7 +653,7 @@
             app:layout_constraintVertical_bias="0.089" />
 
         <ImageView
-            android:id="@+id/fourth_sun_icon"
+            android:id="@+id/brightnessimg4"
             android:layout_width="32dp"
             android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -702,7 +702,7 @@
         android:id="@+id/room_5"
         android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -816,7 +816,7 @@
             app:layout_constraintVertical_bias="0.089" />
 
         <ImageView
-            android:id="@+id/fifth_sun_icon"
+            android:id="@+id/brightnessimg5"
             android:layout_width="32dp"
             android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"

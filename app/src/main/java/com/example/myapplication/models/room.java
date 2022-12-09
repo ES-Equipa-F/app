@@ -1,8 +1,10 @@
 package com.example.myapplication.models;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -18,6 +20,8 @@ public class room {
     SeekBar sB;
     Switch manual_switch;
     Switch motion_switch;
+    TextView motion_text;
+    ImageView brightness_icon;
 
     public room(String id, String name, int manual_control, int brightness, int motion_sense) {
         this.id = id;
@@ -102,5 +106,32 @@ public class room {
 
     public void setMotion_switch(Switch motion_switch) {
         this.motion_switch = motion_switch;
+    }
+
+    public TextView getMotion_text() {
+        return motion_text;
+    }
+
+    public void setMotion_text(TextView motion_text) {
+        this.motion_text = motion_text;
+    }
+
+    public ImageView getBrightness_icon() {
+        return brightness_icon;
+    }
+
+    public void setBrightness_icon(ImageView brightness_icon) {
+        this.brightness_icon = brightness_icon;
+    }
+
+    public void updateControlsDisplay(){
+        int state;
+        if( this.manual_control == 1) state = View.VISIBLE;
+        else state = View.INVISIBLE;
+
+        this.motion_text.setVisibility(state);
+        this.motion_switch.setVisibility(state);
+        this.brightness_icon.setVisibility(state);
+        this.sB.setVisibility(state);
     }
 }
