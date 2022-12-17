@@ -74,6 +74,8 @@ public class SmartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(SmartActivity.this,GoToBed.class);
+                i.putExtra("message_email", current_email);
+                i.putExtra("message_house_id", current_house_id);
                 startActivity(i);
             }
         });
@@ -85,6 +87,8 @@ public class SmartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(SmartActivity.this,VacationMode.class);
+                i.putExtra("message_email", current_email);
+                i.putExtra("message_house_id", current_house_id);
                 startActivity(i);
             }
         });
@@ -96,6 +100,8 @@ public class SmartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(SmartActivity.this,AddAction.class);
+                i.putExtra("message_email", current_email);
+                i.putExtra("message_house_id", current_house_id);
                 startActivity(i);
             }
         });

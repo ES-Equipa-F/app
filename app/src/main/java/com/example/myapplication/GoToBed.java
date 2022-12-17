@@ -49,8 +49,10 @@ public class GoToBed extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.pop_go_to_bed);
+
+        current_email = getIntent().getStringExtra("message_email");
+        current_house_id = getIntent().getStringExtra("message_house_id");
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -130,7 +132,7 @@ public class GoToBed extends AppCompatActivity {
                 String parameter = params[1];
                 int value = Integer.parseInt(params[2]);
 
-                String query =  "UPDATE action " +
+                String query =  "UPDATE timed_action " +
                         "SET "+parameter+"= " + value + " " +
                         "WHERE timed_action.id=\""+id+"\"";
 
@@ -177,25 +179,26 @@ public class GoToBed extends AppCompatActivity {
                         "timed_action.room_id AS id, " +
                         "timed_action.scheduled AS smart_on, " +
                         "timed_action.brightness AS brightness, " +
-                        "timed_action.motion_sense AS motion_sense " +
+                        "timed_action.motion_sense AS motion_sense, " +
                         "timed_action.start_time AS start_time, " +
-                        "timed_action.end_time AS end_time, " +
+                        "timed_action.end_time AS end_time " +
                         "FROM room " +
-                        "JOIN action " +
-                        "ON room.id = action.room_id " +
+                        "JOIN timed_action " +
+                        "ON room.id = timed_action.room_id " +
                         "WHERE " +
                         "room.house_id =" + current_house_id;
 
                 rs = st.executeQuery(query);
-
+                rs.next();
 
                 String id = rs.getString("id");
+
                 String name = rs.getString("name");
                 int brightness = rs.getInt("brightness");
                 int smart_on = rs.getInt("smart_on");
                 int motion_sense = rs.getInt("motion_sense");
                 smart smart1 = new smart(id, name, smart_on, brightness, motion_sense);
-
+                System.out.println("CHEGUEI AQUI");
 
             } catch (SQLException e) {
                 e.printStackTrace();

@@ -16,9 +16,14 @@ public class VacationMode extends AppCompatActivity {
     Button startTime, endTime;
     int hour1, minute1, hour2, minute2;
 
+    String current_email="";
+    String current_house_id="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        current_email = getIntent().getStringExtra("message_email");
+        current_house_id = getIntent().getStringExtra("message_house_id");
 
         setContentView(R.layout.pop_vacation);
 
