@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -198,6 +199,7 @@ public class GoToBed extends AppCompatActivity {
                 int smart_on = rs.getInt("smart_on");
                 int motion_sense = rs.getInt("motion_sense");
                 smart smart1 = new smart(id, name, smart_on, brightness, motion_sense);
+
                 System.out.println("CHEGUEI AQUI");
 
             } catch (SQLException e) {
@@ -238,7 +240,10 @@ public class GoToBed extends AppCompatActivity {
                     }
                 }
             });
-
+            //Setup ao icone da brightness
+            //Setup à SeekBar de controlo da Brightness
+            curr_brightness = smart1.smart_getBrightness();
+            smart1.smart_getsB().setProgress(curr_brightness);
             smart1.smart_getsB().setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
