@@ -44,7 +44,7 @@ public class GoToBed extends AppCompatActivity {
     Button startTime1, endTime1;
     int hour1, minute1, hour2, minute2;
 
-    smart smart1;
+    //smart smart1;
 
 
     @Override
@@ -163,12 +163,12 @@ public class GoToBed extends AppCompatActivity {
     }
 
 
-    private class retrieveValuesFromDB extends AsyncTask<String, Void, String> {
+    private class retrieveValuesFromDB extends AsyncTask<String, Void, smart> {
         String res = "";
         Connection con = null;
-
+        smart smart1;
         @Override
-        protected String doInBackground(String... params) {
+        protected smart doInBackground(String... params) {
             try {
                 ResultSet rs = null;
                 Class.forName("com.mysql.jdbc.Driver");
@@ -193,12 +193,13 @@ public class GoToBed extends AppCompatActivity {
                 rs.next();
 
                 String id = rs.getString("id");
-
+                System.out.println(id);
                 String name = rs.getString("name");
+                System.out.println(name);
                 int brightness = rs.getInt("brightness");
                 int smart_on = rs.getInt("smart_on");
                 int motion_sense = rs.getInt("motion_sense");
-                smart smart1 = new smart(id, name, smart_on, brightness, motion_sense);
+                smart1 = new smart(id, name, smart_on, brightness, motion_sense);
 
                 System.out.println("CHEGUEI AQUI");
 
@@ -216,66 +217,79 @@ public class GoToBed extends AppCompatActivity {
                     }
                 }
             }
-            return "";
+            System.out.println(smart1);
+            return smart1;
         }
 
         @Override
-        protected void onPostExecute(String result) {
-            int curr_motion_sense, curr_brightness;
-            smart1.smart_setMotion_switch((Switch) findViewById(R.id.motion_smart1));
-            curr_motion_sense = smart1.smart_getMotion_sense();
-            smart1.smart_getMotion_switch().setChecked(curr_motion_sense == 1);
-            smart1.smart_getMotion_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    String id = smart1.smart_getId();
-                    if (isChecked) {
-                        smart1.smart_setMotion_sense(1);
-                        GoToBed.updateAction1ParameterOnDB updateAction1ParameterOnDB = new GoToBed.updateAction1ParameterOnDB();
-                        updateAction1ParameterOnDB.execute(id, "motion_sense", "1");
-                    } else {
-                        smart1.smart_setMotion_sense(1);
-                        GoToBed.updateAction1ParameterOnDB updateAction1ParameterOnDB = new GoToBed.updateAction1ParameterOnDB();
-                        updateAction1ParameterOnDB.execute(id, "motion_sense", "0");
-                    }
-                }
-            });
+        protected void onPostExecute(smart result) {
+            int curr_motion_sense, curr_brightness, curr_smart_on;
+
             //Setup ao icone da brightness
             //Setup à SeekBar de controlo da Brightness
-            curr_brightness = smart1.smart_getBrightness();
-            smart1.smart_getsB().setProgress(curr_brightness);
-            smart1.smart_getsB().setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            result.smart_setsB((SeekBar) findViewById(R.id.light1) );
+            curr_brightness = result.smart_getBrightness();
+            System.out.println("CHEGUEI AQUI 2");
+            System.out.println(curr_brightness);
+            result.smart_getsB().setProgress(curr_brightness);
+            result.smart_getsB().setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                    smart1.smart_setBrightness( progress );
+                    result.smart_setBrightness( progress );
                 }
                 @Override
                 public void onStartTrackingTouch(SeekBar seekBar) {}
                 @Override
                 public void onStopTrackingTouch(SeekBar seekBar){
-                    String id = smart1.smart_getId();
-                    String brightness = String.valueOf(smart1.smart_getBrightness());
+                    String id = result.smart_getId();
+                    String brightness = String.valueOf(result.smart_getBrightness());
                     GoToBed.updateAction1ParameterOnDB updateAction1ParameterOnDB = new GoToBed.updateAction1ParameterOnDB();
                     updateAction1ParameterOnDB.execute(id, "brightness", brightness);
                 }
             });
 
-            smart1.smart_getON_Switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+
+            System.out.println(R.id.motion_smart1);
+            Switch motion_smart1 = (Switch) findViewById(R.id.motion_smart1);
+            result.smart_setMotion_switch(motion_smart1);
+            curr_motion_sense = result.smart_getMotion_sense();
+            result.smart_getMotion_switch().setChecked(curr_motion_sense == 1);
+            result.smart_getMotion_switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
-                public void onCheckedChanged( CompoundButton buttonView, boolean isChecked){
-                    String id = smart1.smart_getId();
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    String id = result.smart_getId();
+                    if (isChecked) {
+                        result.smart_setMotion_sense(1);
+                        GoToBed.updateAction1ParameterOnDB updateAction1ParameterOnDB = new GoToBed.updateAction1ParameterOnDB();
+                        updateAction1ParameterOnDB.execute(id, "motion_sense", "1");
+                    } else {
+                        result.smart_setMotion_sense(1);
+                        GoToBed.updateAction1ParameterOnDB updateAction1ParameterOnDB = new GoToBed.updateAction1ParameterOnDB();
+                        updateAction1ParameterOnDB.execute(id, "motion_sense", "0");
+                    }
+                }
+            });
+
+            result.smart_setON_switch((Switch) findViewById(R.id.action_bed));
+            curr_smart_on = result.smart_getOn();
+            result.smart_getON_Switch().setChecked(curr_smart_on==1);
+            result.smart_getON_Switch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    String id = result.smart_getId();
                     if(isChecked){
-                        smart1.smart_setOn(1);
+                        result.smart_setOn(1);
                         GoToBed.updateAction1ParameterOnDB updateAction1ParameterOnDB = new GoToBed.updateAction1ParameterOnDB();
                         updateAction1ParameterOnDB.execute(id, "smart_on", "1");
                     }
                     else{
-                        smart1.smart_setOn(0);
+                        result.smart_setOn(0);
                         GoToBed.updateAction1ParameterOnDB updateAction1ParameterOnDB = new GoToBed.updateAction1ParameterOnDB();
                         updateAction1ParameterOnDB.execute(id, "smart_on", "0");
                     }
                 }
             });
+
 
 
         }
