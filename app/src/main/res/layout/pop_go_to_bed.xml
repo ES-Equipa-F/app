@@ -103,17 +103,26 @@
         app:layout_constraintVertical_bias="0.93" />
 
     <EditText
-        android:id="@+id/editSmartName1"
-        android:layout_width="237dp"
-        android:layout_height="62dp"
+        android:id="@+id/NameSmartAction1"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:autofillHints=""
+        android:background="@drawable/signupbutton"
         android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="Name Smart Action"
         android:inputType="textPersonName"
-        android:text="Name Smart Action"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.01999998" />
+
 
     <Button
         android:id="@+id/startTime1"

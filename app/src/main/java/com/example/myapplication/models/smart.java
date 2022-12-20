@@ -14,17 +14,21 @@ public class smart {
     int smart_on;
     int brightness;
     int motion_sense;
+    int start_time;
+    int end_time;
     SeekBar sB;
     Switch motion_switch;
     Switch on;
     ImageView brightness_icon;
 
-    public smart(String id, String name, int smart_on, int brightness, int motion_sense) {
+    public smart(String id, String name, int smart_on, int brightness, int motion_sense, int start_time, int end_time) {
         this.id = id;
         this.name = name;
         this.smart_on = smart_on;
         this.brightness = brightness;
         this.motion_sense = motion_sense;
+        this.start_time = start_time;
+        this.end_time = end_time;
     }
 
 
@@ -66,6 +70,22 @@ public class smart {
 
     public void smart_setMotion_sense(int motion_sense) {
         this.motion_sense = motion_sense;
+    }
+
+    public int smart_getStart_time() {
+        return start_time;
+    }
+
+    public void smart_setStart_time(int start_time) {
+        this.start_time = start_time;
+    }
+
+    public int smart_getEnd_time() {
+        return end_time;
+    }
+
+    public void smart_setEnd_time(int end_time) {
+        this.end_time = end_time;
     }
 
     public SeekBar smart_getsB() {
