@@ -6,8 +6,49 @@
     android:layout_height="match_parent"
     android:background="@color/lightPurple">
 
+    <Button
+        android:id="@+id/endTime3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="popTimeEndPicker1"
+        android:text="End Time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.81" />
+
+    <Button
+        android:id="@+id/startTime3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="popTimeStartPicker1"
+        android:text="Start Time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71000004" />
+
+    <SeekBar
+        android:id="@+id/light3"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:max="10"
+        android:progress="0"
+        android:progressDrawable="@drawable/track_seekbar"
+        android:splitTrack="false"
+        android:thumb="@drawable/thumb_seekbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32"
+        app:tickMark="@color/white" />
+
     <Switch
-        android:id="@+id/add_brightness"
+        android:id="@+id/add_smart3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
@@ -17,11 +58,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41000003"
+        app:layout_constraintVertical_bias="0.16000003"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Switch
-        android:id="@+id/add_time"
+        android:id="@+id/motion_smart3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
@@ -31,7 +72,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
@@ -43,57 +83,65 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.92" />
+        app:layout_constraintVertical_bias="0.93" />
 
     <EditText
-        android:id="@+id/name_new_action"
-        android:layout_width="234dp"
-        android:layout_height="68dp"
+        android:id="@+id/NameSmartAction3"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:autofillHints=""
+        android:background="@drawable/signupbutton"
         android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="Name Smart Action"
         android:inputType="textPersonName"
-        android:text="New Smart Action Name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="0.01999998" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="139dp"
-        android:layout_height="47dp"
-        android:text="Lightness control"
+        android:layout_width="123dp"
+        android:layout_height="45dp"
+        android:text="Light intensity"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.26999998" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Time picker"
+        android:text="Motion sensor"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintVertical_bias="0.42000002" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Divisions"
+        android:text="Times to turn the lights on"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74" />
+        app:layout_constraintVertical_bias="0.6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,6 +27,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 public class GoToBed extends AppCompatActivity {
     private static final String url = "jdbc:mysql://34.163.74.192/mydb?autoReconnect=true&useSSL=false";
@@ -44,7 +45,7 @@ public class GoToBed extends AppCompatActivity {
     Button startTime1, endTime1;
     int hour1, minute1, hour2, minute2, second1;
 
-    //smart smart1;
+    smart action;
 
 
     @Override
@@ -101,7 +102,7 @@ public class GoToBed extends AppCompatActivity {
                 String startingTime2 = Integer.toString(startingTime);
                 System.out.println("sao" + startingTime2 + "horas");
                 GoToBed.updateAction1ParameterOnDB updateAction1ParameterOnDB = new GoToBed.updateAction1ParameterOnDB();
-                updateAction1ParameterOnDB.execute("ESP_1", "start_time", startingTime2);
+                updateAction1ParameterOnDB.execute("1", "start_time", startingTime2);
 
             }
         };
@@ -135,7 +136,7 @@ public class GoToBed extends AppCompatActivity {
                 String startingTime2 = Integer.toString(startingTime);
                 System.out.println("sao" + startingTime2 + "horas");
                 GoToBed.updateAction1ParameterOnDB updateAction1ParameterOnDB = new GoToBed.updateAction1ParameterOnDB();
-                updateAction1ParameterOnDB.execute("ESP_1", "end_time", startingTime2);
+                updateAction1ParameterOnDB.execute("1", "end_time", startingTime2);
 
 
             }
@@ -168,7 +169,7 @@ public class GoToBed extends AppCompatActivity {
 
                 String query =  "UPDATE timed_action " +
                         "SET "+parameter+"= " + value + " " +
-                        "WHERE timed_action.room_id=\""+id+"\"";
+                        "WHERE timed_action.id=\""+id+"\"";
 
                 st.executeUpdate(query);
 
@@ -209,8 +210,8 @@ public class GoToBed extends AppCompatActivity {
                 Statement st = con.createStatement();
 
                 String query = "SELECT " +
-                        "timed_action.id AS name, " +
-                        "timed_action.room_id AS id, " +
+                        "timed_action.room_id AS division, " +
+                        "timed_action.id AS id, " +
                         "timed_action.scheduled AS smart_on, " +
                         "timed_action.brightness AS brightness, " +
                         "timed_action.motion_sense AS motion_sense, " +
@@ -223,17 +224,22 @@ public class GoToBed extends AppCompatActivity {
                         "room.house_id =" + current_house_id;
 
                 rs = st.executeQuery(query);
+
                 rs.next();
+                //while (!Objects.equals(rs.getString("id"), "1")) {
+                //    rs.next();
+                //}
 
                 String id = rs.getString("id");
-                String name = rs.getString("name");
+                String division = rs.getString("division");
                 int brightness = rs.getInt("brightness");
                 int smart_on = rs.getInt("smart_on");
                 int motion_sense = rs.getInt("motion_sense");
                 int start_time = rs.getInt("start_time");
                 int end_time = rs.getInt("end_time");
+                smart1 = new smart(id, division, smart_on, brightness, motion_sense, start_time, end_time);
 
-                smart1 = new smart(id, name, smart_on, brightness, motion_sense, start_time, end_time);
+
 
                 System.out.println("CHEGUEI AQUI");
 
@@ -322,6 +328,10 @@ public class GoToBed extends AppCompatActivity {
                 }
             });
 
+            Button startTime1 = findViewById(R.id.startTime1);
+            result.smart_setStart_time_button(startTime1);
+            curr_start_time = result.smart_getStart_time();
+            result.smart_setStart_time(curr_start_time);
 
         }
     }
