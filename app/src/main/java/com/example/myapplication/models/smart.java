@@ -1,17 +1,15 @@
 package com.example.myapplication.models;
 
-import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Switch;
-import android.widget.TextView;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class smart {
     String id;
     String division;
+    String name;
     int smart_on;
     int brightness;
     int motion_sense;
@@ -23,7 +21,7 @@ public class smart {
     Button start;
     ImageView brightness_icon;
 
-    public smart(String id, String division, int smart_on, int brightness, int motion_sense, int start_time, int end_time) {
+    public smart(String name, String id, String division, int smart_on, int brightness, int motion_sense, int start_time, int end_time) {
         this.id = id;
         this.division = division;
         this.smart_on = smart_on;
@@ -31,6 +29,7 @@ public class smart {
         this.motion_sense = motion_sense;
         this.start_time = start_time;
         this.end_time = end_time;
+        this.name = name;
     }
 
 
@@ -41,6 +40,10 @@ public class smart {
     public void smart_setId(String id) {
         this.id = id;
     }
+
+    public String smart_getName() {return name;}
+
+    public void smart_setName(String name) {this.name = name;}
 
     public String smart_getDivision() {
         return division;
