@@ -8,6 +8,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -30,7 +32,7 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class GoToBed extends AppCompatActivity {
-    private static final String url = "jdbc:mysql://34.163.74.192/mydb?autoReconnect=true&useSSL=false";
+    private static final String url = "jdbc:mysql://34.155.233.25/mydb?autoReconnect=true&useSSL=false";
     private static final String user = "root";
     private static final String pass = "db-es-teamf";
 
@@ -196,6 +198,52 @@ public class GoToBed extends AppCompatActivity {
         }
     }
 
+    private class updateNameOnDB extends AsyncTask<String, Void, String> {
+        // params[0] = room id (string)
+        // params[1] = parameter manual/brightness/motion (string)
+        // params[2] = value
+        String res = "";
+        Connection con = null;
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                ResultSet rs = null;
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection(url, user, pass);
+                Statement st = con.createStatement();
+                String id = params[0];
+                String parameter = params[1];
+                String value = params[2];
+
+
+                String query =  "UPDATE timed_action " +
+                        "SET "+parameter+"= " + "\""+value+"\"" + " " +
+                        "WHERE timed_action.id=\""+id+"\"";
+                st.executeUpdate(query);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                res = e.toString();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } finally {
+                if(con != null){
+                    try {
+                        con.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return "";
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+        }
+    }
+
 
     private class retrieveValuesFromDB extends AsyncTask<String, Void, smart> {
         String res = "";
@@ -212,6 +260,7 @@ public class GoToBed extends AppCompatActivity {
                 String query = "SELECT " +
                         "timed_action.room_id AS division, " +
                         "timed_action.id AS id, " +
+                        "timed_action.name AS name," +
                         "timed_action.scheduled AS smart_on, " +
                         "timed_action.brightness AS brightness, " +
                         "timed_action.motion_sense AS motion_sense, " +
@@ -230,6 +279,7 @@ public class GoToBed extends AppCompatActivity {
                 //    rs.next();
                 //}
 
+                String name = rs.getString("name");
                 String id = rs.getString("id");
                 String division = rs.getString("division");
                 int brightness = rs.getInt("brightness");
@@ -237,7 +287,7 @@ public class GoToBed extends AppCompatActivity {
                 int motion_sense = rs.getInt("motion_sense");
                 int start_time = rs.getInt("start_time");
                 int end_time = rs.getInt("end_time");
-                smart1 = new smart(id, division, smart_on, brightness, motion_sense, start_time, end_time);
+                smart1 = new smart(name, id, division, smart_on, brightness, motion_sense, start_time, end_time);
 
 
 
@@ -257,12 +307,29 @@ public class GoToBed extends AppCompatActivity {
                     }
                 }
             }
-            System.out.println(smart1);
+            System.out.println("Aqui :" + smart1);
             return smart1;
         }
 
         @Override
         protected void onPostExecute(smart result) {
+            Button button = (Button) findViewById(R.id.b_done);
+            button.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    EditText edit_name;
+                    edit_name = (EditText) findViewById(R.id.NameSmartAction1);
+                    String name2;
+                    name2= String.valueOf(edit_name.getText());
+
+                    result.smart_setName(name2);
+                    String name = result.smart_getName();
+                    String id_name = result.smart_getId();
+                    updateNameOnDB updateNameOnDB = new updateNameOnDB();
+                    updateNameOnDB.execute(id_name, "name", name);
+                }
+            });
+
             int curr_motion_sense, curr_brightness, curr_smart_on, curr_start_time;
 
             //Setup ao icone da brightness
@@ -327,6 +394,8 @@ public class GoToBed extends AppCompatActivity {
                     }
                 }
             });
+
+
 
             Button startTime1 = findViewById(R.id.startTime1);
             result.smart_setStart_time_button(startTime1);
