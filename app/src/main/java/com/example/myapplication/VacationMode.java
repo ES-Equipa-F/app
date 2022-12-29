@@ -25,7 +25,7 @@ import java.sql.Statement;
 import java.util.Locale;
 
 public class VacationMode extends AppCompatActivity {
-    private static final String url = "jdbc:mysql://34.163.74.192/mydb?autoReconnect=true&useSSL=false";
+    private static final String url = "jdbc:mysql://34.155.233.25/mydb?autoReconnect=true&useSSL=false";
     private static final String user = "root";
     private static final String pass = "db-es-teamf";
 
@@ -222,6 +222,7 @@ public class VacationMode extends AppCompatActivity {
                 //    rs.next();
                 //}
 
+                String name = rs.getString("name");
                 String id = rs.getString("id");
                 String division = rs.getString("division");
                 int brightness = rs.getInt("brightness");
@@ -229,7 +230,7 @@ public class VacationMode extends AppCompatActivity {
                 int motion_sense = rs.getInt("motion_sense");
                 int start_time = rs.getInt("start_time");
                 int end_time = rs.getInt("end_time");
-                smart1 = new smart(id, division, smart_on, brightness, motion_sense, start_time, end_time);
+                smart1 = new smart(name, id, division, smart_on, brightness, motion_sense, start_time, end_time);
 
 
 

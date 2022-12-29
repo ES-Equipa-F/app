@@ -30,7 +30,7 @@ import java.util.ArrayList;
 
 public class myHomeActivity extends AppCompatActivity {
 
-    private static final String url = "jdbc:mysql://34.163.74.192/mydb?autoReconnect=true&useSSL=false";
+    private static final String url = "jdbc:mysql://34.155.233.25/mydb?autoReconnect=true&useSSL=false";
     private static final String user = "root";
     private static final String pass = "db-es-teamf";
     String current_email="";
