@@ -15,8 +15,9 @@
     <string name="home">Home</string>
     <string name="smart">Smart</string>
     <string name="profile">Profile</string>
-    <string name="gotobed">Go To Bed</string>
-    <string name="vacation">Vacation Mode</string>
+    <string name="gotobed">Smart Action 1</string>
+    <string name="vacation">Smart Action 2</string>
+    <string name="smart3">Smart Action 3</string>
     <string name="myPage">My Page</string>
     <string name="name">Name</string>
     <string name="changePass">Change Password</string>

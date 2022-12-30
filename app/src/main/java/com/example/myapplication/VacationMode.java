@@ -204,6 +204,7 @@ public class VacationMode extends AppCompatActivity {
                         "timed_action.room_id AS division, " +
                         "timed_action.id AS id, " +
                         "timed_action.scheduled AS smart_on, " +
+                        "timed_action.name AS name," +
                         "timed_action.brightness AS brightness, " +
                         "timed_action.motion_sense AS motion_sense, " +
                         "timed_action.start_time AS start_time, " +

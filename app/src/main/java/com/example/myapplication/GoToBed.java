@@ -313,10 +313,10 @@ public class GoToBed extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(smart result) {
-            Button button = (Button) findViewById(R.id.b_done);
-            button.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view){
+            //Button button = (Button) findViewById(R.id.b_done);
+            //button.setOnClickListener(new View.OnClickListener(){
+             //   @Override
+              //  public void onClick(View view){
                     EditText edit_name;
                     edit_name = (EditText) findViewById(R.id.NameSmartAction1);
                     String name2;
@@ -327,8 +327,8 @@ public class GoToBed extends AppCompatActivity {
                     String id_name = result.smart_getId();
                     updateNameOnDB updateNameOnDB = new updateNameOnDB();
                     updateNameOnDB.execute(id_name, "name", name);
-                }
-            });
+               // }
+            //});
 
             int curr_motion_sense, curr_brightness, curr_smart_on, curr_start_time;
 
