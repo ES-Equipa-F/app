@@ -114,6 +114,11 @@ public class signUpActivity extends AppCompatActivity {
         String insert_light1 = "INSERT INTO light (id, room_id) values("+
                                 "1,"+
                                 "\"ESP_1\")";
+        //queries para insert das smart actions
+        String insert_smart1_1 =  "INSERT INTO timed_action (id, room_id) values(1, \"ESP_1\")";
+        String insert_smart1_2 =  "INSERT INTO timed_action (id, room_id) values(2, \"ESP_1\")";
+        String insert_smart1_3=  "INSERT INTO timed_action (id, room_id) values(3, \"ESP_1\")";
+
         //-----------------------------------------QUERIES PARA A ESP2-----------------------------------------//
         String insert_room2 = "INSERT INTO room (id, name, activated, house_id) values("+
                                 "\"ESP_2\"," +
@@ -211,6 +216,9 @@ public class signUpActivity extends AppCompatActivity {
                             insert_sensor1_ldr,
                             insert_sensor1_movimento,
                             insert_light1,
+                            insert_smart1_1,
+                            insert_smart1_2,
+                            insert_smart1_3,
                                 insert_room2,
                                 insert_action2,
                                 insert_sensor2_ldr,
@@ -467,7 +475,7 @@ public class signUpActivity extends AppCompatActivity {
                 Connection con = DriverManager.getConnection(url, user, pass);
                 Statement st = con.createStatement();
 
-                for(int i=0; i<28; i++){
+                for(int i=0; i<31; i++){
                     st.executeUpdate(params[i]);
                 }
 
