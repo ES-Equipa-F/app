@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.myapplication.Encryption.passwordEncryption;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -95,8 +95,8 @@ public class MainActivity extends AppCompatActivity {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection(url, user, pass);
                 Statement st = con.createStatement();
-
-                String query = "SELECT * FROM user WHERE email=\""+params[0]+"\" AND password=\""+params[1]+"\"";
+                String password = passwordEncryption.encrypt(params[1]);
+                String query = "SELECT * FROM user WHERE email=\""+params[0]+"\" AND password=\""+password+"\"";
                 rs = st.executeQuery(query);
 
                 if(rs.next()){
@@ -111,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
                 res = e.toString();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
+            } catch (Exception eCode) {
+                eCode.printStackTrace();
             } finally {
                 if(con != null){
                     try {

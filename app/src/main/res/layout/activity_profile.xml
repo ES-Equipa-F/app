@@ -181,7 +181,7 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.223"
+            app:layout_constraintHorizontal_bias="0.263"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.13"
@@ -210,14 +210,14 @@
             android:ems="10"
             android:importantForAutofill="no"
             android:text="@string/someEmail"
-            android:textSize="18sp"
             android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.223"
+            app:layout_constraintHorizontal_bias="0.263"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.338"
+            app:layout_constraintVertical_bias="0.336"
             tools:ignore="TextContrastCheck" />
 
         <TextView

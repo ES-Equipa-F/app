@@ -3,7 +3,6 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.textfield.TextInputEditText;
+
+import com.example.myapplication.Encryption.passwordEncryption;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,6 +20,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class signUpActivity extends AppCompatActivity {
 
@@ -155,6 +157,54 @@ public class signUpActivity extends AppCompatActivity {
         });
     }
 
+    public boolean validateEmail(String email){
+        String EMAIL_REGEX = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
+        Pattern PATTERN = Pattern.compile(EMAIL_REGEX, Pattern.CASE_INSENSITIVE);
+
+        Matcher matcher = PATTERN.matcher(email);
+        return matcher.matches();
+    }
+
+    public boolean validateUsername(String username){ // Username can have numbers, _, -, and letters, its length must be from 3-16.
+        final String USERNAME_REGEX = "^[a-zA-Z0-9._-]{3,16}$";
+        Pattern PATTERN = Pattern.compile(USERNAME_REGEX);
+
+        Matcher matcher = PATTERN.matcher(username);
+        return matcher.matches();
+    }
+
+    public boolean validatePassword(String password){
+        int MIN_LENGTH = 8;
+        int MAX_LENGTH = 32;
+
+        // Check password length
+        if (password.length() < MIN_LENGTH || password.length() > MAX_LENGTH) {
+            return false;
+        }
+
+        // Check for at least one lowercase letter
+        if (!password.matches(".*[a-z].*")) {
+            return false;
+        }
+
+        // Check for at least one uppercase letter
+        if (!password.matches(".*[A-Z].*")) {
+            return false;
+        }
+
+        // Check for at least one digit
+        if (!password.matches(".*\\d.*")) {
+            return false;
+        }
+
+        // Check for at least one special character
+        if (!password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*")) {
+            return false;
+        }
+
+        return true;
+    }
+
     public void SignUp(){
         EditText EditTextUserName, EditTextEmail, EditTextPassword, EditTextIDCode, EditTextPhoneNumber, EditTextAddress;
 
@@ -185,22 +235,39 @@ public class signUpActivity extends AppCompatActivity {
 
 
                 if(!username.equals("") && !email.equals("") && !password.equals("") && !idCode.equals("") && !phoneNumber.equals("")&& !address.equals("")){
-                    if(checkKey(key)){
-                        // Insert into database
-                        if(!checkEmail(email)){
-                            addUser(username,password,email,phoneNumber,key, address);
-                            Intent i = new Intent(signUpActivity.this,MainActivity.class);
-                            Toast.makeText(getApplicationContext(),"Account created successfully!", Toast.LENGTH_SHORT).show();
-                            startActivity(i);
-                            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                    if(validateUsername(username)){
+                        if(validateEmail(email)){
+                            if(validatePassword(password)){
+                                if(checkKey(key)){//If key exists
+                                    if(!checkEmail(email)){// If the email is already registered
+                                        try {
+                                            password = passwordEncryption.encrypt(password);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                        addUser(username,password,email,phoneNumber,key, address);
+                                        Intent i = new Intent(signUpActivity.this,MainActivity.class);
+                                        Toast.makeText(getApplicationContext(),"Account created successfully!", Toast.LENGTH_SHORT).show();
+                                        startActivity(i);
+                                        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                                    }else{
+                                        Toast.makeText(getApplicationContext(),"Email is already registered!", Toast.LENGTH_SHORT).show();
+                                    }
+                                }else{
+                                    Toast.makeText(getApplicationContext(),"Invalid Key!", Toast.LENGTH_SHORT).show();
+                                }
+                            }else{
+                                Toast.makeText(getApplicationContext(),"Invalid Password!", Toast.LENGTH_SHORT).show();
+                            }
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Invalid Email!", Toast.LENGTH_SHORT).show();
                         }
-                        else{
-                            Toast.makeText(getApplicationContext(),"Email is already registered!", Toast.LENGTH_SHORT).show();
-                        }
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Invalid Username!", Toast.LENGTH_SHORT).show();
                     }
-                    else{
-                        Toast.makeText(getApplicationContext(),"This key is not valid!", Toast.LENGTH_SHORT).show();
-                    }
+
+
+
                 }else{
                     Toast.makeText(getApplicationContext(),"All fields are required", Toast.LENGTH_SHORT).show();
                 }
