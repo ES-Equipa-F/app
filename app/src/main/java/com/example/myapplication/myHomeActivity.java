@@ -603,7 +603,15 @@ public class myHomeActivity extends AppCompatActivity {
         });
     }
 
-
+    public void goRoom1_graph(View view){
+        Intent i = new Intent(myHomeActivity.this,seeRoomGraphs.class);
+        i.putExtra("message_email", current_email);
+        i.putExtra("message_house_id", current_house_id);
+        i.putExtra("selected_room_id", rooms.get(0).getId() );
+        i.putExtra("selected_room_name", rooms.get(0).getName() );
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+    }
 
     @Override
     public void finish() {

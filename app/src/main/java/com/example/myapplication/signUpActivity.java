@@ -39,7 +39,6 @@ public class signUpActivity extends AppCompatActivity {
 
         getKeys();
         getEmails();
-        //goToMyHome();
         goBack();
         SignUp(); //Substitute goToMyHome when database is ready
 
@@ -100,11 +99,6 @@ public class signUpActivity extends AppCompatActivity {
                                 "\"NOT_DEFINED\","+
                                 "0,"+
                                 key+")";
-        String insert_room2 = "INSERT INTO room (id, name, activated, house_id) values("+
-                                "\"ESP_2\"," +
-                                "\"NOT_DEFINED\","+
-                                "0,"+
-                                key+")";
 
         String insert_action1 = "INSERT INTO action (id, manual_control, brightness, motion_sense, room_id) values("+
                                 "\"ESP_1\"," +
@@ -113,6 +107,24 @@ public class signUpActivity extends AppCompatActivity {
                                 "0,"+
                                 "\"ESP_1\")";
 
+        String insert_sensor1_ldr = "INSERT INTO sensor (type, room_id) values("+
+                                    "\"ldr\"," +
+                                    "\"ESP_1\")";
+
+        String insert_sensor1_movimento =   "INSERT INTO sensor (type, room_id) values("+
+                                            "\"movimento\"," +
+                                            "\"ESP_1\")";
+
+        String insert_light1 = "INSERT INTO light (id, room_id) values("+
+                                "1,"+
+                                "\"ESP_1\")";
+
+        String insert_room2 = "INSERT INTO room (id, name, activated, house_id) values("+
+                                "\"ESP_2\"," +
+                                "\"NOT_DEFINED\","+
+                                "0,"+
+                                key+")";
+
         String insert_action2 = "INSERT INTO action (id, manual_control, brightness, motion_sense, room_id) values("+
                                 "\"ESP_2\"," +
                                 "0,"+
@@ -120,14 +132,36 @@ public class signUpActivity extends AppCompatActivity {
                                 "0,"+
                                 "\"ESP_2\")";
 
+        String insert_sensor2_ldr = "INSERT INTO sensor (type, room_id) values("+
+                "\"ldr\"," +
+                "\"ESP_2\")";
+
+        String insert_sensor2_movimento =   "INSERT INTO sensor (type, room_id) values("+
+                "\"movimento\"," +
+                "\"ESP_2\")";
+
+        String insert_light2 = "INSERT INTO light (id, room_id) values("+
+                "2,"+
+                "\"ESP_2\")";
+
+
+
         signUpActivity.addUserToDB setUser = new signUpActivity.addUserToDB();
+
+
         setUser.execute(insert_house,
                         insert_user,
                         update_key,
                         insert_room1,
-                        insert_room2,
                         insert_action1,
-                        insert_action2);
+                        insert_sensor1_ldr,
+                        insert_sensor1_movimento,
+                        insert_light1,
+                        insert_room2,
+                        insert_action2,
+                        insert_sensor2_ldr,
+                        insert_sensor2_movimento,
+                        insert_light2);
 
     }
 
@@ -372,6 +406,13 @@ public class signUpActivity extends AppCompatActivity {
                 st.executeUpdate(params[4]);
                 st.executeUpdate(params[5]);
                 st.executeUpdate(params[6]);
+                st.executeUpdate(params[7]);
+
+                st.executeUpdate(params[8]);
+                st.executeUpdate(params[9]);
+                st.executeUpdate(params[10]);
+                st.executeUpdate(params[11]);
+                st.executeUpdate(params[12]);
 
 
             } catch (SQLException e) {

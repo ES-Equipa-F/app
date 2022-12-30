@@ -42,6 +42,7 @@
             android:theme="@style/Theme.MyApplication.CustomTheme"
             ></activity>
         <activity android:name=".createRoomActivity" />
+        <activity android:name=".seeRoomGraphs" />
 
     </application>
 

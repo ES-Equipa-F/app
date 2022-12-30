@@ -181,9 +181,10 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <ImageView
-            android:id="@+id/imageView20"
+            android:id="@+id/room_1_details"
             android:layout_width="28dp"
             android:layout_height="30dp"
+            android:onClick="goRoom1_graph"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.900"
@@ -342,7 +343,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <ImageView
-            android:id="@+id/second_link_icon"
+            android:id="@+id/room_2_details"
             android:layout_width="28dp"
             android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -504,7 +505,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <ImageView
-            android:id="@+id/third_link_icon"
+            android:id="@+id/room_3_details"
             android:layout_width="28dp"
             android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -666,7 +667,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <ImageView
-            android:id="@+id/fourth_link_icon"
+            android:id="@+id/room_4_details"
             android:layout_width="28dp"
             android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -829,7 +830,7 @@
             tools:ignore="ImageContrastCheck, ContentDescription" />
 
         <ImageView
-            android:id="@+id/fifth_link_icon"
+            android:id="@+id/room_5_details"
             android:layout_width="28dp"
             android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
