@@ -6,6 +6,26 @@
     android:layout_height="match_parent"
     android:background="@color/Off_white">
 
+    <Button
+        android:id="@+id/create_button2"
+        android:layout_width="171dp"
+        android:layout_height="48dp"
+        android:background="@drawable/loginbutton"
+        android:fontFamily="@font/roboto"
+        android:text="Show graph"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.211"
+        tools:ignore="TextContrastCheck" />
+
     <TextView
         android:id="@+id/room_name"
         android:layout_width="wrap_content"
@@ -16,9 +36,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.149"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218" />
+        app:layout_constraintVertical_bias="0.207" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout1"
@@ -65,30 +86,55 @@
 
     <Spinner
         android:id="@+id/spinner_graph"
-        android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="145dp"
+        android:layout_height="49dp"
         android:background="@drawable/dropdown"
         android:contentDescription="@string/chooseEsp"
         android:spinnerMode="dialog"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
 
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/room_name" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.302" />
+
+    <Spinner
+        android:id="@+id/spinner_graph2"
+        android:layout_width="145dp"
+        android:layout_height="49dp"
+        android:background="@drawable/dropdown"
+        android:contentDescription="@string/chooseEsp"
+        android:spinnerMode="dialog"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.303" />
 
     <ImageButton
         android:id="@+id/graphRoom_goBack"
         android:layout_width="69dp"
         android:layout_height="32dp"
-        android:layout_marginBottom="32dp"
         android:background="@color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_graph"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.989"
         app:srcCompat="@drawable/seta"
         tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck, ContentDescription,TouchTargetSizeCheck" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph"
+        android:layout_width="378dp"
+        android:layout_height="347dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.742" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

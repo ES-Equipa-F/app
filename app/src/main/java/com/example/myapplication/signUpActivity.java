@@ -93,57 +93,111 @@ public class signUpActivity extends AppCompatActivity {
                                                                                                                   ","+key+");";
         update_key = "update activation_key SET activated=true WHERE id="+key;
 
-        //provisorio para adicionar rooms
+        //-----------------------------------------QUERIES PARA A ESP1-----------------------------------------//
         String insert_room1 = "INSERT INTO room (id, name, activated, house_id) values("+
                                 "\"ESP_1\"," +
                                 "\"NOT_DEFINED\","+
                                 "0,"+
                                 key+")";
-
         String insert_action1 = "INSERT INTO action (id, manual_control, brightness, motion_sense, room_id) values("+
                                 "\"ESP_1\"," +
                                 "0,"+
                                 "0,"+
                                 "0,"+
                                 "\"ESP_1\")";
-
         String insert_sensor1_ldr = "INSERT INTO sensor (type, room_id) values("+
                                     "\"ldr\"," +
                                     "\"ESP_1\")";
-
         String insert_sensor1_movimento =   "INSERT INTO sensor (type, room_id) values("+
                                             "\"movimento\"," +
                                             "\"ESP_1\")";
-
         String insert_light1 = "INSERT INTO light (id, room_id) values("+
                                 "1,"+
                                 "\"ESP_1\")";
-
+        //-----------------------------------------QUERIES PARA A ESP2-----------------------------------------//
         String insert_room2 = "INSERT INTO room (id, name, activated, house_id) values("+
                                 "\"ESP_2\"," +
                                 "\"NOT_DEFINED\","+
                                 "0,"+
                                 key+")";
-
         String insert_action2 = "INSERT INTO action (id, manual_control, brightness, motion_sense, room_id) values("+
                                 "\"ESP_2\"," +
                                 "0,"+
                                 "0,"+
                                 "0,"+
                                 "\"ESP_2\")";
-
         String insert_sensor2_ldr = "INSERT INTO sensor (type, room_id) values("+
-                "\"ldr\"," +
-                "\"ESP_2\")";
-
+                                    "\"ldr\"," +
+                                    "\"ESP_2\")";
         String insert_sensor2_movimento =   "INSERT INTO sensor (type, room_id) values("+
-                "\"movimento\"," +
-                "\"ESP_2\")";
-
+                                            "\"movimento\"," +
+                                            "\"ESP_2\")";
         String insert_light2 = "INSERT INTO light (id, room_id) values("+
-                "2,"+
-                "\"ESP_2\")";
-
+                                "2,"+
+                                "\"ESP_2\")";
+        //-----------------------------------------QUERIES PARA A ESP3-----------------------------------------//
+        String insert_room3 = "INSERT INTO room (id, name, activated, house_id) values("+
+                "\"ESP_3\"," +
+                "\"NOT_DEFINED\","+
+                "0,"+
+                key+")";
+        String insert_action3 = "INSERT INTO action (id, manual_control, brightness, motion_sense, room_id) values("+
+                "\"ESP_3\"," +
+                "0,"+
+                "0,"+
+                "0,"+
+                "\"ESP_3\")";
+        String insert_sensor3_ldr = "INSERT INTO sensor (type, room_id) values("+
+                "\"ldr\"," +
+                "\"ESP_3\")";
+        String insert_sensor3_movimento =   "INSERT INTO sensor (type, room_id) values("+
+                "\"movimento\"," +
+                "\"ESP_3\")";
+        String insert_light3 = "INSERT INTO light (id, room_id) values("+
+                "3,"+
+                "\"ESP_3\")";
+        //-----------------------------------------QUERIES PARA A ESP4-----------------------------------------//
+        String insert_room4 = "INSERT INTO room (id, name, activated, house_id) values("+
+                "\"ESP_4\"," +
+                "\"NOT_DEFINED\","+
+                "0,"+
+                key+")";
+        String insert_action4 = "INSERT INTO action (id, manual_control, brightness, motion_sense, room_id) values("+
+                "\"ESP_4\"," +
+                "0,"+
+                "0,"+
+                "0,"+
+                "\"ESP_4\")";
+        String insert_sensor4_ldr = "INSERT INTO sensor (type, room_id) values("+
+                "\"ldr\"," +
+                "\"ESP_4\")";
+        String insert_sensor4_movimento =   "INSERT INTO sensor (type, room_id) values("+
+                "\"movimento\"," +
+                "\"ESP_4\")";
+        String insert_light4 = "INSERT INTO light (id, room_id) values("+
+                "4,"+
+                "\"ESP_4\")";
+        //-----------------------------------------QUERIES PARA A ESP5-----------------------------------------//
+        String insert_room5 = "INSERT INTO room (id, name, activated, house_id) values("+
+                "\"ESP_5\"," +
+                "\"NOT_DEFINED\","+
+                "0,"+
+                key+")";
+        String insert_action5 = "INSERT INTO action (id, manual_control, brightness, motion_sense, room_id) values("+
+                "\"ESP_5\"," +
+                "0,"+
+                "0,"+
+                "0,"+
+                "\"ESP_5\")";
+        String insert_sensor5_ldr = "INSERT INTO sensor (type, room_id) values("+
+                "\"ldr\"," +
+                "\"ESP_5\")";
+        String insert_sensor5_movimento =   "INSERT INTO sensor (type, room_id) values("+
+                "\"movimento\"," +
+                "\"ESP_5\")";
+        String insert_light5 = "INSERT INTO light (id, room_id) values("+
+                "5,"+
+                "\"ESP_5\")";
 
 
         signUpActivity.addUserToDB setUser = new signUpActivity.addUserToDB();
@@ -152,16 +206,31 @@ public class signUpActivity extends AppCompatActivity {
         setUser.execute(insert_house,
                         insert_user,
                         update_key,
-                        insert_room1,
-                        insert_action1,
-                        insert_sensor1_ldr,
-                        insert_sensor1_movimento,
-                        insert_light1,
-                        insert_room2,
-                        insert_action2,
-                        insert_sensor2_ldr,
-                        insert_sensor2_movimento,
-                        insert_light2);
+                            insert_room1,
+                            insert_action1,
+                            insert_sensor1_ldr,
+                            insert_sensor1_movimento,
+                            insert_light1,
+                                insert_room2,
+                                insert_action2,
+                                insert_sensor2_ldr,
+                                insert_sensor2_movimento,
+                                insert_light2,
+                                    insert_room3,
+                                    insert_action3,
+                                    insert_sensor3_ldr,
+                                    insert_sensor3_movimento,
+                                    insert_light3,
+                                        insert_room4,
+                                        insert_action4,
+                                        insert_sensor4_ldr,
+                                        insert_sensor4_movimento,
+                                        insert_light4,
+                                            insert_room5,
+                                            insert_action5,
+                                            insert_sensor5_ldr,
+                                            insert_sensor5_movimento,
+                                            insert_light5);
 
     }
 
@@ -397,22 +466,10 @@ public class signUpActivity extends AppCompatActivity {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection(url, user, pass);
                 Statement st = con.createStatement();
-                st.executeUpdate(params[0]);
-                st.executeUpdate(params[1]);
-                st.executeUpdate(params[2]);
 
-                //provisorio para adicionar rooms
-                st.executeUpdate(params[3]);
-                st.executeUpdate(params[4]);
-                st.executeUpdate(params[5]);
-                st.executeUpdate(params[6]);
-                st.executeUpdate(params[7]);
-
-                st.executeUpdate(params[8]);
-                st.executeUpdate(params[9]);
-                st.executeUpdate(params[10]);
-                st.executeUpdate(params[11]);
-                st.executeUpdate(params[12]);
+                for(int i=0; i<28; i++){
+                    st.executeUpdate(params[i]);
+                }
 
 
             } catch (SQLException e) {
