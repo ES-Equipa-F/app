@@ -105,10 +105,12 @@ public class signUpActivity extends AppCompatActivity {
                                 "0,"+
                                 "0,"+
                                 "\"ESP_1\")";
-        String insert_sensor1_ldr = "INSERT INTO sensor (type, room_id) values("+
+        String insert_sensor1_ldr = "INSERT INTO sensor (id, type, room_id) values("+
+                                    "\"ESP_1_ldr\", "+
                                     "\"ldr\"," +
                                     "\"ESP_1\")";
-        String insert_sensor1_movimento =   "INSERT INTO sensor (type, room_id) values("+
+        String insert_sensor1_movimento =   "INSERT INTO sensor (id, type, room_id) values("+
+                                            "\"ESP_1_movimento\", "+
                                             "\"movimento\"," +
                                             "\"ESP_1\")";
         String insert_light1 = "INSERT INTO light (id, room_id) values("+
@@ -131,10 +133,12 @@ public class signUpActivity extends AppCompatActivity {
                                 "0,"+
                                 "0,"+
                                 "\"ESP_2\")";
-        String insert_sensor2_ldr = "INSERT INTO sensor (type, room_id) values("+
+        String insert_sensor2_ldr = "INSERT INTO sensor (id, type, room_id) values("+
+                                    "\"ESP_2_ldr\", "+
                                     "\"ldr\"," +
                                     "\"ESP_2\")";
-        String insert_sensor2_movimento =   "INSERT INTO sensor (type, room_id) values("+
+        String insert_sensor2_movimento =   "INSERT INTO sensor (id, type, room_id) values("+
+                                            "\"ESP_2_movimento\", "+
                                             "\"movimento\"," +
                                             "\"ESP_2\")";
         String insert_light2 = "INSERT INTO light (id, room_id) values("+
@@ -152,10 +156,12 @@ public class signUpActivity extends AppCompatActivity {
                 "0,"+
                 "0,"+
                 "\"ESP_3\")";
-        String insert_sensor3_ldr = "INSERT INTO sensor (type, room_id) values("+
+        String insert_sensor3_ldr = "INSERT INTO sensor (id, type, room_id) values("+
+                "\"ESP_3_ldr\", "+
                 "\"ldr\"," +
                 "\"ESP_3\")";
-        String insert_sensor3_movimento =   "INSERT INTO sensor (type, room_id) values("+
+        String insert_sensor3_movimento =   "INSERT INTO sensor (id, type, room_id) values("+
+                "\"ESP_3_movimento\", "+
                 "\"movimento\"," +
                 "\"ESP_3\")";
         String insert_light3 = "INSERT INTO light (id, room_id) values("+
@@ -173,10 +179,12 @@ public class signUpActivity extends AppCompatActivity {
                 "0,"+
                 "0,"+
                 "\"ESP_4\")";
-        String insert_sensor4_ldr = "INSERT INTO sensor (type, room_id) values("+
+        String insert_sensor4_ldr = "INSERT INTO sensor (id, type, room_id) values("+
+                "\"ESP_4_ldr\", "+
                 "\"ldr\"," +
                 "\"ESP_4\")";
-        String insert_sensor4_movimento =   "INSERT INTO sensor (type, room_id) values("+
+        String insert_sensor4_movimento =   "INSERT INTO sensor (id, type, room_id) values("+
+                "\"ESP_4_movimento\", "+
                 "\"movimento\"," +
                 "\"ESP_4\")";
         String insert_light4 = "INSERT INTO light (id, room_id) values("+
@@ -194,10 +202,12 @@ public class signUpActivity extends AppCompatActivity {
                 "0,"+
                 "0,"+
                 "\"ESP_5\")";
-        String insert_sensor5_ldr = "INSERT INTO sensor (type, room_id) values("+
+        String insert_sensor5_ldr = "INSERT INTO sensor (id, type, room_id) values("+
+                "\"ESP_5_ldr\", "+
                 "\"ldr\"," +
                 "\"ESP_5\")";
-        String insert_sensor5_movimento =   "INSERT INTO sensor (type, room_id) values("+
+        String insert_sensor5_movimento =   "INSERT INTO sensor (id, type, room_id) values("+
+                "\"ESP_5_movimento\", "+
                 "\"movimento\"," +
                 "\"ESP_5\")";
         String insert_light5 = "INSERT INTO light (id, room_id) values("+

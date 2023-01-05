@@ -26,6 +26,26 @@
         app:layout_constraintVertical_bias="0.211"
         tools:ignore="TextContrastCheck" />
 
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="171dp"
+        android:layout_height="48dp"
+        android:background="@drawable/loginbutton"
+        android:fontFamily="@font/roboto"
+        android:text="Delete Records"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.954"
+        tools:ignore="TextContrastCheck" />
+
     <TextView
         android:id="@+id/room_name"
         android:layout_width="wrap_content"
@@ -121,9 +141,10 @@
         android:background="@color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.989"
+        app:layout_constraintVertical_bias="0.944"
         app:srcCompat="@drawable/seta"
         tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck, ContentDescription,TouchTargetSizeCheck" />
 

@@ -65,6 +65,7 @@ public class seeRoomGraphs extends AppCompatActivity {
         setup_Spinner1();
         setup_Spinner2();
         setup_ButtonGraph();
+        setup_ButtonDelete();
 
         goBack();
     }
@@ -285,6 +286,91 @@ public class seeRoomGraphs extends AppCompatActivity {
                 Toast.makeText(seeRoomGraphs.this,"Not enough data for this time frame!", Toast.LENGTH_SHORT).show();
             }
 
+        }
+    }
+
+
+    void setup_ButtonDelete(){
+        Button button = (Button) findViewById(R.id.delete_button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String delete_records_query = query_for_delete();
+                seeRoomGraphs.deleteRecordsOnDB deleteRecordsOnDB = new seeRoomGraphs.deleteRecordsOnDB();
+                deleteRecordsOnDB.execute(delete_records_query);
+            }
+        });
+    }
+
+    String query_for_delete(){
+        String query = "";
+
+        if( selected_sensor_name.equals("lampada") ){
+            query = "DELETE " +
+                    "brightness_value " +
+                    "FROM brightness_value " +
+                    "JOIN light " +
+                    "ON brightness_value.light_id = light.id " +
+                    "WHERE " +
+                    "light.room_id =\""+selected_room_id + "\" ";
+        }
+        else {
+            query = "DELETE " +
+                    "sensor_value " +
+                    "FROM sensor_value " +
+                    "JOIN sensor " +
+                    "ON sensor_value.sensor_id = sensor.id " +
+                    "WHERE " +
+                    "sensor.room_id =\""+selected_room_id + "\" "+
+                    "AND sensor.type =\""+selected_sensor_name + "\" ";
+        }
+
+        return query;
+    }
+
+
+    private class deleteRecordsOnDB extends AsyncTask<String, Void, String> {
+        String res = "valid";
+        Connection con = null;
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                ResultSet rs = null;
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection(url, user, pass);
+                Statement st = con.createStatement();
+
+                String query = params[0];
+                //st.executeUpdate(query);
+                System.out.println(query);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                res = "invalid";
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } finally {
+                if(con != null){
+                    try {
+                        con.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return res;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            if( res.equals("valid") ){
+                Toast.makeText(seeRoomGraphs.this,"Records Deleted!", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(seeRoomGraphs.this,"Error occurred!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
