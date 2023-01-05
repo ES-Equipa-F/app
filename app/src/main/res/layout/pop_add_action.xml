@@ -85,27 +85,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.93" />
 
-    <EditText
-        android:id="@+id/NameSmartAction3"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:autofillHints=""
-        android:background="@drawable/signupbutton"
-        android:ems="10"
-        android:fontFamily="@font/roboto"
-        android:hint="Name Smart Action"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textColorHint="@color/gray"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01999998" />
-
     <TextView
         android:id="@+id/textView9"
         android:layout_width="123dp"
@@ -144,4 +123,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.6" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Smart Action 3"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.074" />
 </androidx.constraintlayout.widget.ConstraintLayout>
