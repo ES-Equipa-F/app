@@ -117,9 +117,9 @@ public class signUpActivity extends AppCompatActivity {
                                 "1,"+
                                 "\"ESP_1\")";
         //queries para insert das smart actions
-        String insert_smart1_1 =  "INSERT INTO timed_action (id, room_id) values(1, \"ESP_1\")";
-        String insert_smart1_2 =  "INSERT INTO timed_action (id, room_id) values(2, \"ESP_1\")";
-        String insert_smart1_3=  "INSERT INTO timed_action (id, room_id) values(3, \"ESP_1\")";
+        String insert_smart1_1 =  "INSERT INTO timed_action (id, scheduled, room_id) values(1, 0, \"ESP_1\")";
+        String insert_smart1_2 =  "INSERT INTO timed_action (id, scheduled, room_id) values(2, 0,  \"ESP_1\")";
+        String insert_smart1_3=  "INSERT INTO timed_action (id, scheduled, room_id) values(3, 0, \"ESP_1\")";
 
         //-----------------------------------------QUERIES PARA A ESP2-----------------------------------------//
         String insert_room2 = "INSERT INTO room (id, name, activated, house_id) values("+

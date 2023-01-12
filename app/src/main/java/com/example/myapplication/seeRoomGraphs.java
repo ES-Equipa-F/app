@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -47,7 +48,7 @@ public class seeRoomGraphs extends AppCompatActivity {
 
     LineGraphSeries<DataPoint> series;
 
-    int rows_per_minute = 60;
+    int rows_per_minute = 6;
     int num_retrieved_rows = 0;
     int max_retrieved_rows = 0;
 
@@ -136,15 +137,15 @@ public class seeRoomGraphs extends AppCompatActivity {
                     max_retrieved_rows = rows_per_minute;
                 }
                 else if(selected.equals("Last Hour") ){
-                    selected_sensor_name = "hour";
+                    selected_time_frame = "hour";
                     max_retrieved_rows = rows_per_minute*60;
                 }
                 else if(selected.equals("Last Day") ){
-                    selected_sensor_name = "day";
+                    selected_time_frame = "day";
                     max_retrieved_rows = rows_per_minute*60*24;
                 }
                 else if(selected.equals("Last Week") ){
-                    selected_sensor_name = "week";
+                    selected_time_frame = "week";
                     max_retrieved_rows = rows_per_minute*60*24*7;
                 }
             }
@@ -232,6 +233,8 @@ public class seeRoomGraphs extends AppCompatActivity {
                 rs = st.executeQuery(query);
 
                 series = new LineGraphSeries<DataPoint>();
+                series.setDrawBackground(true);
+                series.setBackgroundColor(Color.argb(60,95, 226, 156));
                 num_retrieved_rows=0;
 
                 //Para sacar da db
@@ -276,6 +279,31 @@ public class seeRoomGraphs extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             GraphView graph = (GraphView) findViewById(R.id.graph);
+            graph.removeAllSeries();
+            graph.getViewport().setMinY(0.0);
+
+             /*
+            double max;
+
+            max = series.getHighestValueY() * 1.4;
+            graph.getViewport().setMaxY(max);
+
+            max = series.getHighestValueX();
+            graph.getViewport().setMaxX(max);*/
+
+
+            if( selected_sensor_name.equals("movimento") ){
+                graph.getViewport().setMaxY(1);
+            }
+            else if(selected_sensor_name.equals("lampada") ){
+                graph.getViewport().setMaxY(100);
+            }
+            else if(selected_sensor_name.equals("ldr") ){
+                graph.getViewport().setMaxY(100);
+            }
+
+            graph.getViewport().setYAxisBoundsManual(true);
+            graph.getViewport().setXAxisBoundsManual(true);
 
             if( num_retrieved_rows >= max_retrieved_rows*0.9 ){      //tolerancia
                 graph.addSeries(series);
@@ -343,7 +371,7 @@ public class seeRoomGraphs extends AppCompatActivity {
                 Statement st = con.createStatement();
 
                 String query = params[0];
-                //st.executeUpdate(query);
+                st.executeUpdate(query);
                 System.out.println(query);
 
             } catch (SQLException e) {
