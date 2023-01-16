@@ -386,9 +386,6 @@ public class signUpActivity extends AppCompatActivity {
                     }else{
                         Toast.makeText(getApplicationContext(),"Invalid Username!", Toast.LENGTH_SHORT).show();
                     }
-
-
-
                 }else{
                     Toast.makeText(getApplicationContext(),"All fields are required", Toast.LENGTH_SHORT).show();
                 }

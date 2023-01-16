@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import com.example.myapplication.Encryption.passwordEncryption;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -20,7 +19,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Objects;
+
 
 
 public class ProfileActivity extends AppCompatActivity {
@@ -157,6 +156,19 @@ public class ProfileActivity extends AppCompatActivity {
             String Old, New;
             New = String.valueOf(newPass.getText());
             Old = String.valueOf(oldPass.getText());
+
+            try {
+                New = passwordEncryption.encrypt(New);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            try {
+                Old = passwordEncryption.encrypt(Old);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
 
             if(Old.equals(result)){
                 ProfileActivity.setNewPassword setPassWord = new ProfileActivity.setNewPassword();
